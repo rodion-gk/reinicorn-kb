@@ -133,11 +133,19 @@ captures stdout/stderr, asserting:
 
 - Output does not contain `[x]` or `[ ]` checkbox markers.
 - Output prompt uses select wording (e.g. contains `select` / `default`,
-  does not contain `toggle` case-insensitively).
+  does not contain `toggle` case-insensitively). These wording checks
+  intentionally couple the test to honest prompt copy — they will break
+  on future rewording; that is acceptable because misleading copy is the
+  bug this spec fixes. Prefer stable substrings over full-string equality.
 - Empty input returns the default selection (`["claude"]` with today’s
   defaults) and emits no discard warning.
 - Input `"2"` returns `["cursor"]` only (select-set, not toggle).
 - Input `"1,2"` returns `["claude", "cursor"]`.
+- Input `"9"` returns `["claude"]` with a discard warning (out-of-range;
+  non-empty input, no valid indices → defaults).
+- Input `"2,2"` returns `["cursor"]` (dedup).
+- Input `"2,1"` returns `["claude", "cursor"]` (option-list order, not
+  input order).
 - Input `"abc"` returns `["claude"]` and emits a warning that the input
   was discarded / defaults apply.
 - Input `"1,abc"` returns `["claude"]` and emits a warning mentioning
