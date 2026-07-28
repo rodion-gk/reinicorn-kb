@@ -2,12 +2,11 @@
 
 **Date:** 2026-07-28
 **Author:** Rodion Izotov
-**Status:** draft
+**Status:** in-review
 **Origin:** ai-assisted
 **Human-validated:** false
 **Promotes:** kb/reinicorn/ideas/michael-biehl/2026-07-02-wire-kb-status-compact-into-non-claude-session-hooks-cursor.md
-**Review-PR:** https://github.com/rodion-gk/reinicorn-kb/pull/1
-**Review-cancelled:** 2026-07-28
+**Review-PR:** https://github.com/rodion-gk/reinicorn-kb/pull/2
 
 ## Problem
 
