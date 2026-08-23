@@ -1,10 +1,16 @@
-# Harness Auto-Load and Skill Triggers
+---
+type: spec
+title: Harness Auto-Load and Skill Triggers
+slug: harness-auto-load-and-skill-triggers
+lifecycle: active
+status: draft
+created: 2026-04-04
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-04-04
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
+# Harness Auto-Load and Skill Triggers
 
 ## Problem
 

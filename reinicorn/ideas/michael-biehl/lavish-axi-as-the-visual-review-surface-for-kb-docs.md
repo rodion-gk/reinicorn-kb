@@ -1,10 +1,16 @@
-# lavish-axi as the Visual Review Surface for kb Docs
+---
+type: idea
+title: lavish-axi as the Visual Review Surface for kb Docs
+slug: lavish-axi-as-the-visual-review-surface-for-kb-docs
+lifecycle: active
+status: new
+created: 2026-07-27
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** new
-**Origin:** ai-assisted
-**Human-validated:** false
+# lavish-axi as the Visual Review Surface for kb Docs
 
 ## Summary
 

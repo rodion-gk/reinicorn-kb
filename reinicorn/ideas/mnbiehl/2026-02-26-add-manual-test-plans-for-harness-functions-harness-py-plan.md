@@ -1,8 +1,14 @@
-# Add manual test plans for harness functions (harness.py, plan_dir, commit_harnes
+---
+type: idea
+title: Add manual test plans for harness functions (harness.py, plan_dir, commit_harnes
+slug: 2026-02-26-add-manual-test-plans-for-harness-functions-harness-py-plan
+lifecycle: active
+status: new
+created: 2026-02-26
+author: mnbiehl
+---
 
-**Date:** 2026-02-26
-**Author:** mnbiehl
-**Status:** new
+# Add manual test plans for harness functions (harness.py, plan_dir, commit_harnes
 
 ## Description
 

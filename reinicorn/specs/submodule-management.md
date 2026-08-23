@@ -1,8 +1,14 @@
-# Submodule Management Redesign
+---
+type: spec
+title: Submodule Management Redesign
+slug: submodule-management
+lifecycle: done
+status: implemented
+created: 2026-02-17
+author: Michael + Claude
+---
 
-**Status:** implemented
-**Date:** 2026-02-17
-**Author:** Michael + Claude
+# Submodule Management Redesign
 
 ## Problem
 

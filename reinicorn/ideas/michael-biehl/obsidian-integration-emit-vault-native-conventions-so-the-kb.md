@@ -1,10 +1,16 @@
-# Obsidian Integration — Emit Vault-Native Conventions So the KB Lights Up
+---
+type: idea
+title: Obsidian Integration — Emit Vault-Native Conventions So the KB Lights Up
+slug: obsidian-integration-emit-vault-native-conventions-so-the-kb
+lifecycle: active
+status: new
+created: 2026-07-22
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-07-22
-**Author:** Michael Biehl
-**Status:** new
-**Origin:** ai-assisted
-**Human-validated:** false
+# Obsidian Integration — Emit Vault-Native Conventions So the KB Lights Up
 
 ## Summary
 

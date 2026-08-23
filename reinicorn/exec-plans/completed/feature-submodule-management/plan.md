@@ -1,9 +1,16 @@
-# Execution Plan: feature/submodule-management
+---
+type: plan
+title: 'Execution Plan: feature/submodule-management'
+slug: feature-submodule-management
+lifecycle: done
+status: complete
+created: 2026-02-17
+author: mnbiehl
+branch: feature/submodule-management
+ticket: N/A
+---
 
-**Ticket:** N/A
-**Author:** mnbiehl
-**Created:** 2026-02-17
-**Status:** complete
+# Execution Plan: feature/submodule-management
 
 ## Goal
 
@@ -114,7 +121,6 @@ from pathlib import Path
 
 from reins.harness import commit_harness
 
-
 def test_commit_harness_commits_new_file(submodule_repo: Path) -> None:
     (submodule_repo / "harness" / "ideas" / "test.md").parent.mkdir(parents=True, exist_ok=True)
     (submodule_repo / "harness" / "ideas" / "test.md").write_text("# Test idea\n")
@@ -129,11 +135,9 @@ def test_commit_harness_commits_new_file(submodule_repo: Path) -> None:
     )
     assert "test: add idea" in log.stdout
 
-
 def test_commit_harness_returns_false_when_nothing_to_commit(submodule_repo: Path) -> None:
     result = commit_harness(submodule_repo, "nothing here")
     assert result is False
-
 
 def test_commit_harness_noop_for_inline_layout(tmp_path: Path) -> None:
     """Inline layout (no .gitmodules) should no-op."""
@@ -145,7 +149,6 @@ def test_commit_harness_noop_for_inline_layout(tmp_path: Path) -> None:
 
     result = commit_harness(repo, "should not commit")
     assert result is False
-
 
 def test_commit_harness_fixes_detached_head(submodule_repo: Path) -> None:
     """If harness is on detached HEAD, commit_harness should checkout main first."""
@@ -322,7 +325,6 @@ from pathlib import Path
 from unittest.mock import patch
 
 from reins.commands.sync import cmd_sync
-
 
 def test_sync_stays_on_main_branch(submodule_repo: Path) -> None:
     """After sync, harness should be on main branch, not detached HEAD."""

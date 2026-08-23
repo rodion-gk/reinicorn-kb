@@ -1,8 +1,14 @@
-# Surface kb docs awaiting review on the parent repo — e.g. a GitHub badge. Some w
+---
+type: idea
+title: Surface kb docs awaiting review on the parent repo — e.g. a GitHub badge. Some w
+slug: surface-kb-docs-awaiting-review-on-the-parent-repo-e-g-a-git
+lifecycle: active
+status: new
+created: 2026-07-24
+author: Michael Biehl
+---
 
-**Date:** 2026-07-24
-**Author:** Michael Biehl
-**Status:** new
+# Surface kb docs awaiting review on the parent repo — e.g. a GitHub badge. Some w
 
 ## Description
 

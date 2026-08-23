@@ -1,11 +1,17 @@
-# unified kb doc frontmatter schema
+---
+type: spec
+title: unified kb doc frontmatter schema
+slug: unified-kb-doc-frontmatter-schema
+lifecycle: active
+status: approved
+created: 2026-07-22
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+review_pr: https://github.com/crystldm/reinicorn-kb/pull/3
+---
 
-**Date:** 2026-07-22
-**Author:** Michael Biehl
-**Status:** approved
-**Origin:** ai-assisted
-**Human-validated:** false
-**Review-PR:** https://github.com/crystldm/reinicorn-kb/pull/3
+# unified kb doc frontmatter schema
 
 ## Problem
 

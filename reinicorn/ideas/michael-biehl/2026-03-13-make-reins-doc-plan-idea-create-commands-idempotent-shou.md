@@ -1,8 +1,14 @@
-# Make reins doc/plan/idea create commands idempotent — should not overwrite e
+---
+type: idea
+title: Make reins doc/plan/idea create commands idempotent — should not overwrite e
+slug: 2026-03-13-make-reins-doc-plan-idea-create-commands-idempotent-shou
+lifecycle: active
+status: new
+created: 2026-03-13
+author: Michael Biehl
+---
 
-**Date:** 2026-03-13
-**Author:** Michael Biehl
-**Status:** new
+# Make reins doc/plan/idea create commands idempotent — should not overwrite e
 
 ## Description
 

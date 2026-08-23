@@ -1,11 +1,17 @@
-# Test coverage reports
+---
+type: spec
+title: Test coverage reports
+slug: test-coverage-reports
+lifecycle: active
+status: approved
+created: 2026-07-24
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+review_pr: https://github.com/crystldm/reinicorn-kb/pull/4
+---
 
-**Date:** 2026-07-24
-**Author:** Michael Biehl
-**Status:** approved
-**Origin:** ai-assisted
-**Human-validated:** false
-**Review-PR:** https://github.com/crystldm/reinicorn-kb/pull/4
+# Test coverage reports
 
 ## Problem
 

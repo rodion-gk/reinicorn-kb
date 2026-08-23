@@ -1,11 +1,17 @@
-# Multi-Editor Hook Support
+---
+type: spec
+title: Multi-Editor Hook Support
+slug: multi-editor-hook-support
+lifecycle: done
+status: implemented
+created: 2026-02-25
+author: mnbiehl
+origin: ai-assisted
+human_validated: false
+implemented_by: feature-mvp
+---
 
-**Date:** 2026-02-25
-**Author:** mnbiehl
-**Status:** implemented
-**Branch:** feature-mvp
-**Origin:** ai-assisted
-**Human-validated:** false
+# Multi-Editor Hook Support
 
 ## Problem
 

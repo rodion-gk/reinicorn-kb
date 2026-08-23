@@ -1,8 +1,14 @@
-# Are 'idea' and 'debt' the right nouns? 'reins debt create' reads weird. Alternat
+---
+type: idea
+title: Are 'idea' and 'debt' the right nouns? 'reins debt create' reads weird. Alternat
+slug: 2026-07-04-are-idea-and-debt-the-right-nouns-reins-debt-create-reads-we
+lifecycle: active
+status: new
+created: 2026-07-04
+author: Michael Biehl
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** new
+# Are 'idea' and 'debt' the right nouns? 'reins debt create' reads weird. Alternat
 
 ## Description
 

@@ -1,8 +1,14 @@
-# Extension overlay system for language stacks and integrations (extensions/ delet
+---
+type: idea
+title: Extension overlay system for language stacks and integrations (extensions/ delet
+slug: 2026-07-05-extension-overlay-system-for-language-stacks-and-integration
+lifecycle: active
+status: new
+created: 2026-07-05
+author: Michael Biehl
+---
 
-**Date:** 2026-07-05
-**Author:** Michael Biehl
-**Status:** new
+# Extension overlay system for language stacks and integrations (extensions/ delet
 
 ## Description
 

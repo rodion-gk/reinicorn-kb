@@ -1,10 +1,16 @@
-# Remove touched-areas, compute overlap on demand
+---
+type: spec
+title: Remove touched-areas, compute overlap on demand
+slug: remove-touched-areas-compute-overlap-on-demand
+lifecycle: done
+status: implemented
+created: 2026-03-21
+author: Claude
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-03-21
-**Author:** Claude
-**Status:** implemented
-**Origin:** ai-assisted
-**Human-validated:** false
+# Remove touched-areas, compute overlap on demand
 
 ## Problem
 

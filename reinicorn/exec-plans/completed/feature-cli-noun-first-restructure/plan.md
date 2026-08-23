@@ -1,11 +1,18 @@
+---
+type: plan
+title: CLI Noun-First Restructure Implementation Plan
+slug: feature-cli-noun-first-restructure
+lifecycle: done
+status: complete
+created: 2026-04-25
+author: Michael Biehl
+branch: feature-cli-noun-first-restructure
+ticket: N/A
+---
+
 # CLI Noun-First Restructure Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-
-**Ticket:** N/A
-**Author:** Michael Biehl
-**Created:** 2026-04-25
-**Status:** complete
 
 **Goal:** Restructure the reins CLI to a uniformly noun-first shape, eliminate divergent doc-creation code paths, and consolidate top-level commands into noun groups (`kb`, `mode`, plus per-doc-type groups).
 
@@ -229,24 +236,19 @@ def _create_typed(doc_type: str, title: str) -> int:
     commit_kb(root, f"doc({doc_type}): {_slugify(title)}")
     return 0
 
-
 def cmd_design_create(title: str) -> int:
     return _create_typed("design", title)
-
 
 def cmd_spec_create(title: str) -> int:
     return _create_typed("spec", title)
 
-
 def cmd_debt_create(title: str) -> int:
     return _create_typed("debt", title)
-
 
 def cmd_retro_create() -> int:
     """Create a retro for the current branch (no title — heading derived from branch)."""
     branch = current_branch() or "unknown"
     return _create_typed("retro", f"Retro: {branch}")
-
 
 def cmd_principle_add(title: str) -> int:
     return _create_typed("principle", title)
@@ -394,7 +396,6 @@ from __future__ import annotations
 import subprocess
 import sys
 
-
 def _reins(*args, expect_returncode=0):
     result = subprocess.run(
         [sys.executable, "-m", "reins", *args],
@@ -405,7 +406,6 @@ def _reins(*args, expect_returncode=0):
     )
     return result
 
-
 def test_top_level_help_lists_noun_groups():
     r = _reins("--help")
     out = r.stdout
@@ -413,7 +413,6 @@ def test_top_level_help_lists_noun_groups():
                  "retro", "principle", "kb", "mode",
                  "init", "hooks", "update", "feedback"):
         assert noun in out, f"missing noun group: {noun}"
-
 
 def test_old_top_level_commands_are_removed():
     for old in ("sync", "publish", "lint", "status",
@@ -423,19 +422,16 @@ def test_old_top_level_commands_are_removed():
                "unrecognized" in r.stderr.lower() or \
                "argument" in r.stderr.lower()
 
-
 def test_kb_subcommands_listed():
     r = _reins("kb", "--help")
     for verb in ("sync", "publish", "status", "lint",
                  "list", "remove-scope", "git"):
         assert verb in r.stdout, f"missing kb verb: {verb}"
 
-
 def test_mode_subcommands_listed():
     r = _reins("mode", "--help")
     for verb in ("enable", "disable", "incognito", "status"):
         assert verb in r.stdout, f"missing mode verb: {verb}"
-
 
 def test_design_subcommands_listed():
     r = _reins("design", "--help")
@@ -681,7 +677,6 @@ _INTERNAL_COMMANDS = {
     "_hook-check", "_post-checkout", "_pre-push", "_post-merge",
     "_check-path",
 }
-
 
 def _dispatch_internal(argv: list[str]) -> int:
     """Dispatch internal git hook callbacks (not in argparse, hidden from help)."""

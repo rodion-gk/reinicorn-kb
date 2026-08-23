@@ -1,10 +1,16 @@
-# CLI noun-first restructure
+---
+type: spec
+title: CLI noun-first restructure
+slug: cli-noun-first-restructure
+lifecycle: done
+status: implemented
+created: 2026-04-25
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-04-25
-**Author:** Michael Biehl
-**Status:** implemented
-**Origin:** ai-assisted
-**Human-validated:** false
+# CLI noun-first restructure
 
 ## Problem
 

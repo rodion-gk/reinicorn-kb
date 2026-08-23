@@ -1,14 +1,19 @@
+---
+type: debt
+title: 'Test suite health: vacuous update test, host isolation, coverage gaps'
+slug: test-suite-health-vacuous-update-test-host-isolation-coverag
+lifecycle: active
+status: draft
+created: 2026-07-27
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+category: tests
+severity: medium
+remediation: planned
+---
+
 # Test suite health: vacuous update test, host isolation, coverage gaps
-
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
-
-**Severity:** medium
-**Domain:** tests
-**Remediation:** planned
 
 ## Impact
 

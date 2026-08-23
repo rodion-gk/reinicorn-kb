@@ -1,10 +1,17 @@
-# Execution Plan: test/lint-and-runner-coverage
+---
+type: plan
+title: 'Execution Plan: test/lint-and-runner-coverage'
+slug: test-lint-and-runner-coverage
+lifecycle: active
+status: planning
+created: 2026-07-25
+author: Michael Biehl
+branch: test/lint-and-runner-coverage
+ticket: N/A
+spec: specs/test-coverage-reports.md
+---
 
-**Ticket:** N/A
-**Spec:** specs/test-coverage-reports.md
-**Author:** Michael Biehl
-**Created:** 2026-07-25
-**Status:** planning
+# Execution Plan: test/lint-and-runner-coverage
 
 ## Goal
 Close the two worst coverage gaps found once measurement landed (P1 and P2 of

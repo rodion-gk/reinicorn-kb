@@ -1,8 +1,14 @@
-# Externalize doc templates to template files — move inline doc-template strings o
+---
+type: idea
+title: Externalize doc templates to template files — move inline doc-template strings o
+slug: 2026-06-09-externalize-doc-templates-to-template-files-move-inline-doc
+lifecycle: active
+status: new
+created: 2026-06-09
+author: Michael Biehl
+---
 
-**Date:** 2026-06-09
-**Author:** Michael Biehl
-**Status:** new
+# Externalize doc templates to template files — move inline doc-template strings o
 
 ## Description
 

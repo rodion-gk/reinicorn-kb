@@ -1,11 +1,17 @@
-# Reinicorn public release program and identity migration
+---
+type: spec
+title: Reinicorn public release program and identity migration
+slug: reinicorn-public-release-program-and-identity-migration
+lifecycle: active
+status: approved
+created: 2026-07-15
+author: Michael Biehl
+origin: ai-assisted
+human_validated: true
+review_pr: https://github.com/mnbiehl/reins-kb/pull/9
+---
 
-**Date:** 2026-07-15
-**Author:** Michael Biehl
-**Status:** approved
-**Origin:** ai-assisted
-**Human-validated:** true
-**Review-PR:** https://github.com/mnbiehl/reins-kb/pull/9
+# Reinicorn public release program and identity migration
 
 ## Problem
 

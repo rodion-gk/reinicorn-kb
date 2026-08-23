@@ -1,8 +1,15 @@
+---
+type: idea
+title: pre-push hook should verify harness submodule is pushed before allowing outer re
+slug: 2026-02-16-pre-push-hook-should-verify-harness-submodule-is-pushed-befo
+lifecycle: done
+status: resolved
+created: 2026-02-16
+author: mnbiehl
+---
+
 # pre-push hook should verify harness submodule is pushed before allowing outer re
 
-**Date:** 2026-02-16
-**Author:** mnbiehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Description

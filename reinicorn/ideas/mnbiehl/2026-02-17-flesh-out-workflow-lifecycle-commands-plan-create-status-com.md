@@ -1,8 +1,14 @@
-# Flesh out workflow lifecycle commands — plan create/status/complete naming is co
+---
+type: idea
+title: Flesh out workflow lifecycle commands — plan create/status/complete naming is co
+slug: 2026-02-17-flesh-out-workflow-lifecycle-commands-plan-create-status-com
+lifecycle: active
+status: new
+created: 2026-02-17
+author: mnbiehl
+---
 
-**Date:** 2026-02-17
-**Author:** mnbiehl
-**Status:** new
+# Flesh out workflow lifecycle commands — plan create/status/complete naming is co
 
 ## Description
 

@@ -1,9 +1,16 @@
-# Execution Plan: feature-axi-output-surface
+---
+type: plan
+title: 'Execution Plan: feature-axi-output-surface'
+slug: feature-axi-output-surface
+lifecycle: done
+status: complete
+created: 2026-07-02
+author: Michael Biehl
+branch: feature-axi-output-surface
+ticket: N/A
+---
 
-**Ticket:** N/A
-**Author:** Michael Biehl
-**Created:** 2026-07-02
-**Status:** complete
+# Execution Plan: feature-axi-output-surface
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -72,13 +79,11 @@ def test_error_is_structured_and_on_stdout(capsys):
     assert "error: kb not found" in out
     assert err == ""
 
-
 def test_progress_goes_to_stderr(capsys):
     console.progress("Publishing kb changes...")
     out, err = capsys.readouterr()
     assert out == ""
     assert "Publishing kb changes..." in err
-
 
 def test_next_step_prints_one_line_per_command(capsys):
     console.next_step("reins plan create", "reins kb status")
@@ -104,11 +109,9 @@ def error(msg: str) -> None:
     """Structured error on stdout (agents read stdout; exit codes carry status)."""
     print(_c(_RED, f"error: {msg}"))
 
-
 def progress(msg: str) -> None:
     """Progress/debug diagnostic on stderr — never data."""
     print(msg, file=sys.stderr)
-
 
 def next_step(*commands: str) -> None:
     """Axi contextual disclosure: one `next: <command>` line per suggestion."""
@@ -163,7 +166,6 @@ also honors NO_COLOR/FORCE_COLOR) and use it for indentation:
 def _is_tty() -> bool:
     return hasattr(sys.stdout, "isatty") and sys.stdout.isatty()
 
-
 def _pad() -> str:
     return "  " if _is_tty() else ""
 ```
@@ -203,12 +205,10 @@ exactly. Then:
 ```python
 from reins.commands.doc_show import PREVIEW_CHARS, cmd_doc_list, cmd_doc_show
 
-
 def _write_spec(kb_repo, slug, body):
     d = kb_repo / "kb" / "testproject" / "specs"
     d.mkdir(parents=True, exist_ok=True)
     (d / f"{slug}.md").write_text(body)
-
 
 def test_show_short_doc_prints_all(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
@@ -217,7 +217,6 @@ def test_show_short_doc_prints_all(kb_repo, monkeypatch, capsys):
     out = capsys.readouterr().out
     assert "# My Spec" in out
     assert "truncated" not in out
-
 
 def test_show_long_doc_truncates_with_hint(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
@@ -229,7 +228,6 @@ def test_show_long_doc_truncates_with_hint(kb_repo, monkeypatch, capsys):
     assert "next: reins spec show big --full" in out
     assert len(out) < PREVIEW_CHARS * 2
 
-
 def test_show_full_flag_prints_everything(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
     body = "# Big\n\n" + "x" * (PREVIEW_CHARS * 2)
@@ -238,7 +236,6 @@ def test_show_full_flag_prints_everything(kb_repo, monkeypatch, capsys):
     out = capsys.readouterr().out
     assert "truncated" not in out
     assert "x" * (PREVIEW_CHARS * 2) in out
-
 
 def test_show_unknown_slug_lists_valid_slugs(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
@@ -270,14 +267,12 @@ from reins.kb import require_kb_dir
 
 PREVIEW_CHARS = 1500
 
-
 def _repo_dir() -> Path | None:
     root = repo_root()
     if root is None:
         return None
     kb_dir = require_kb_dir(root)
     return kb_dir / repo_slug()
-
 
 def _doc_files(doc_type: str, repo_dir: Path) -> list[Path]:
     """All docs of a slug-addressed type, index files excluded."""
@@ -291,7 +286,6 @@ def _doc_files(doc_type: str, repo_dir: Path) -> list[Path]:
         files = sorted(base.glob("*.md"))
     return [f for f in files if f.name != "index.md"]
 
-
 def _print_doc(target: Path, doc_type: str, ref: str, full: bool) -> None:
     text = target.read_text()
     if full or len(text) <= PREVIEW_CHARS:
@@ -300,7 +294,6 @@ def _print_doc(target: Path, doc_type: str, ref: str, full: bool) -> None:
     print(text[:PREVIEW_CHARS].rstrip())
     print(f"… (truncated, {len(text)} chars total)")
     console.next_step(f"reins {doc_type} show {ref} --full")
-
 
 def cmd_doc_show(doc_type: str, slug: str, full: bool = False) -> int:
     repo_dir = _repo_dir()
@@ -350,7 +343,6 @@ def test_list_shows_count_slug_title_status(kb_repo, monkeypatch, capsys):
     assert "a-spec — Alpha Spec [approved]" in out
     assert "next: reins spec show <slug>" in out
 
-
 def test_list_empty_is_definitive(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
     assert cmd_doc_list("spec") == 0
@@ -376,7 +368,6 @@ def _title_and_status(path: Path) -> tuple[str, str]:
         elif line.startswith("**Status:**"):
             status = line.removeprefix("**Status:**").strip()
     return title, status
-
 
 def cmd_doc_list(doc_type: str) -> int:
     repo_dir = _repo_dir()
@@ -420,7 +411,6 @@ git commit -m "feat(show): list verbs with minimal schema and definitive empty s
 ```python
 from reins.commands.doc_show import cmd_plan_show
 
-
 def test_plan_show_defaults_to_current_branch(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
     # kb_repo starts on 'main'; put a plan there
@@ -430,7 +420,6 @@ def test_plan_show_defaults_to_current_branch(kb_repo, monkeypatch, capsys):
     assert cmd_plan_show() == 0
     out = capsys.readouterr().out
     assert "# Execution Plan: main" in out
-
 
 def test_plan_show_missing_suggests_create(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
@@ -466,10 +455,8 @@ def _branch_doc_show(doc_type: str, branch: str | None, full: bool) -> int:
     _print_doc(target, doc_type, safe, full)
     return 0
 
-
 def cmd_plan_show(branch: str | None = None, full: bool = False) -> int:
     return _branch_doc_show("plan", branch, full)
-
 
 def cmd_retro_show(branch: str | None = None, full: bool = False) -> int:
     return _branch_doc_show("retro", branch, full)
@@ -564,7 +551,6 @@ Create `tests/commands/test_home.py` (same fixture/slug setup as
 ```python
 from reins.commands.home import cmd_home
 
-
 def test_home_shows_live_state_not_usage(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
     assert cmd_home() == 0
@@ -575,14 +561,12 @@ def test_home_shows_live_state_not_usage(kb_repo, monkeypatch, capsys):
     assert "next: reins plan create" in out
     assert "usage:" not in out
 
-
 def test_home_outside_git_repo_is_definitive(tmp_path, monkeypatch, capsys):
     monkeypatch.chdir(tmp_path)
     assert cmd_home() == 0
     out = capsys.readouterr().out
     assert "repo: not inside a git repository" in out
     assert "next: reins help" in out
-
 
 def test_bare_reins_invokes_home(kb_repo, monkeypatch, capsys):
     from reins.cli import main
@@ -617,14 +601,12 @@ from reins.doc_types import REGISTRY
 from reins.git import current_branch, repo_root, repo_slug, sanitize_branch
 from reins.kb import check_overlap, get_kb_dir
 
-
 def _bin_path() -> str:
     exe = Path(sys.argv[0]).resolve()
     try:
         return f"~/{exe.relative_to(Path.home())}"
     except ValueError:
         return str(exe)
-
 
 def cmd_home() -> int:
     print(f"bin: {_bin_path()}")
@@ -717,7 +699,6 @@ Create `tests/commands/test_status_compact.py` (same setup pattern):
 
 ```python
 from reins.commands.status import cmd_status
-
 
 def test_compact_is_short_and_undecorated(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
@@ -934,7 +915,6 @@ def cmd_enable() -> int:
     console.success("Reins enabled. Hooks and publishing are active.")
     return 0
 
-
 def cmd_disable() -> int:
     if get_mode() == "disabled":
         console.info("Reins already disabled (no-op).")
@@ -992,13 +972,11 @@ the convention can become a golden principle.
 
 from reins import console
 
-
 def test_error_channel_and_shape(capsys):
     console.error("boom")
     out, err = capsys.readouterr()
     assert out.startswith("error: boom")
     assert err == ""
-
 
 def test_progress_channel(capsys):
     console.progress("working...")
@@ -1006,13 +984,11 @@ def test_progress_channel(capsys):
     assert out == ""
     assert err == "working...\n"
 
-
 def test_next_step_shape(capsys):
     console.next_step("reins plan create")
     out, err = capsys.readouterr()
     assert out == "next: reins plan create\n"
     assert err == ""
-
 
 def test_no_direct_stderr_prints_in_commands():
     """Agent-facing modules must use console.* channels, not raw stderr prints."""

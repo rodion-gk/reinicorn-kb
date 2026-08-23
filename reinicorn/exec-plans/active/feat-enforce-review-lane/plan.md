@@ -1,10 +1,17 @@
-# Execution Plan: feat/enforce-review-lane
+---
+type: plan
+title: 'Execution Plan: feat/enforce-review-lane'
+slug: feat-enforce-review-lane
+lifecycle: active
+status: in-progress
+created: 2026-07-26
+author: Michael Biehl
+branch: feat/enforce-review-lane
+ticket: '#23'
+spec: specs/enforce-the-review-lane-draft-refs-resolution-declared-plan.md
+---
 
-**Ticket:** #23
-**Spec:** specs/enforce-the-review-lane-draft-refs-resolution-declared-plan.md
-**Author:** Michael Biehl
-**Created:** 2026-07-26
-**Status:** in-progress
+# Execution Plan: feat/enforce-review-lane
 
 ## Goal
 

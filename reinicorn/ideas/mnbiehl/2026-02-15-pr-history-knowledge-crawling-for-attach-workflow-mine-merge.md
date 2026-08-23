@@ -1,8 +1,14 @@
-# PR History Knowledge Crawling for Attach Workflow
+---
+type: idea
+title: PR History Knowledge Crawling for Attach Workflow
+slug: 2026-02-15-pr-history-knowledge-crawling-for-attach-workflow-mine-merge
+lifecycle: active
+status: new
+created: 2026-02-15
+author: mnbiehl
+---
 
-**Date:** 2026-02-15
-**Author:** mnbiehl
-**Status:** new
+# PR History Knowledge Crawling for Attach Workflow
 
 ## Summary
 

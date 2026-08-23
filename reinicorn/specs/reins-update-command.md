@@ -1,10 +1,16 @@
-# reins update command
+---
+type: spec
+title: reins update command
+slug: reins-update-command
+lifecycle: done
+status: implemented
+created: 2026-03-07
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-03-07
-**Author:** Michael Biehl
-**Status:** implemented
-**Origin:** ai-assisted
-**Human-validated:** false
+# reins update command
 
 ## Problem
 

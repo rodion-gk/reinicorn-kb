@@ -1,8 +1,15 @@
+---
+type: idea
+title: Redesign submodule management — stop using raw git submodule commands in hooks.
+slug: 2026-02-17-redesign-submodule-management-stop-using-raw-git-submodule-c
+lifecycle: done
+status: resolved
+created: 2026-02-17
+author: mnbiehl
+---
+
 # Redesign submodule management — stop using raw git submodule commands in hooks. 
 
-**Date:** 2026-02-17
-**Author:** mnbiehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Resolution

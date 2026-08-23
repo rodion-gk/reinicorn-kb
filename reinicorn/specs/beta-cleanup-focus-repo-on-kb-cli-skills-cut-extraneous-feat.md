@@ -1,10 +1,16 @@
-# Beta cleanup: focus repo on kb CLI + skills, cut extraneous features
+---
+type: spec
+title: 'Beta cleanup: focus repo on kb CLI + skills, cut extraneous features'
+slug: beta-cleanup-focus-repo-on-kb-cli-skills-cut-extraneous-feat
+lifecycle: active
+status: draft
+created: 2026-07-05
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-07-05
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
+# Beta cleanup: focus repo on kb CLI + skills, cut extraneous features
 
 ## Problem
 

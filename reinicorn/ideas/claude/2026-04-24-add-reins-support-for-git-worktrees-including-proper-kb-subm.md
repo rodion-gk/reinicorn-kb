@@ -1,8 +1,14 @@
-# Add reins support for git worktrees, including proper kb submodule lifecycle man
+---
+type: idea
+title: Add reins support for git worktrees, including proper kb submodule lifecycle man
+slug: 2026-04-24-add-reins-support-for-git-worktrees-including-proper-kb-subm
+lifecycle: active
+status: new
+created: 2026-04-24
+author: Claude
+---
 
-**Date:** 2026-04-24
-**Author:** Claude
-**Status:** new
+# Add reins support for git worktrees, including proper kb submodule lifecycle man
 
 ## Description
 

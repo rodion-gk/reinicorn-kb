@@ -1,3 +1,13 @@
+---
+type: principle
+title: Golden Principles
+slug: golden-principles
+lifecycle: active
+status: active
+created: 2026-07-17
+author: Michael Biehl
+---
+
 # Golden Principles
 
 These are **mechanical, enforceable rules** that keep the codebase legible for both humans and agents. They are stack-agnostic and apply universally.
@@ -103,7 +113,6 @@ The goal is to make every golden principle enforceable by automation. For each p
 - Add the lint rule to CI so violations block merges.
 - If a principle cannot be fully automated, add it to the PR review checklist in `.claude/skills/review-pr.md`.
 
-
 ---
 
 ## Project-Specific Principles
@@ -203,3 +212,46 @@ sub.add_parser("attach", help="(deprecated: use 'init')")
      its actual test (`test_source_editor_integrations.py`) never ran.
    - Enforcement: CI required checks today; a Reinicorn-managed pre-push gate
      is planned (see idea: managed principle enforcement).
+
+15. **No stringly-typed code**
+   - Values that carry meaning get a real type, not a bare string: an
+     `Enum` member compared with `is`, a registry identity check
+     (`dt is REGISTRY["retro"]`), a dataclass, or a named constant. The
+     smell in all its forms — branching on string comparisons
+     (`if mode == "append"`), passing modes/kinds/states around as
+     strings, encoding structured data in delimited strings. Strings are
+     for text a human reads or an external boundary demands; parse them
+     into types at that boundary. Plain `Enum` over `StrEnum`: a stray
+     `== "branch"` must be always-False and flagged by pyright, not
+     silently keep working.
+   - Prevents: typo'd branches that never match, silent breakage when a
+     value is renamed (grep finds an enum member; it misses one of a dozen
+     scattered literals), and type knowledge leaking out of its single
+     source of truth — e.g. doc-type dispatch drifting from
+     `doc_types.REGISTRY`.
+   - Enforcement: not generally lintable until the semgrep/opengrep work —
+     the smell in full (modes/kinds/states passed as bare strings, data
+     encoded in delimited strings) needs semantic rules, not greps. Narrow
+     partial guards exist today: pyright
+     `reportUnnecessaryComparison = "error"` catches enum-vs-string-literal
+     comparisons only, and `test_no_doc_type_key_comparisons` covers
+     doc-type keys only. Code review carries the rest for now.
+
+16. **No change-detector tests**
+   - A regression test asserts a desired behavior, never the absence of a
+     rejected or corrected approach. Banned-word scans over prose or code
+     ("must not contain `superpowers`"), assertions that pin incidental
+     structure, and tests whose only failure mode is "someone reverted to
+     the idea we rejected" are change detectors: they encode the rejection,
+     not the requirement. State the requirement positively (e.g. "the skill
+     points at the generated wiring doc") and let review carry the history.
+     If the rejection itself matters, record WHY in the doc layer (spec,
+     retro, principle) — not as a tripwire in the test suite.
+   - Prevents: fossilized rejections — an LLM failure mode where a
+     corrected idea gets outsized weight and the codebase accumulates
+     tests that forbid mentioning it, which then block legitimate uses
+     (e.g. citing the rejected thing as an example) and document nothing
+     about what the code should actually do.
+   - Enforcement: code review; reviewers should ask of every new
+     assertion "what desired behavior fails if this trips?" — no
+     mechanical guard exists.

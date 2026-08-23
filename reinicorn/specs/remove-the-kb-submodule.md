@@ -1,11 +1,16 @@
+---
+type: spec
+title: Remove the kb submodule
+slug: remove-the-kb-submodule
+lifecycle: active
+status: approved
+created: 2026-07-26
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+review_pr: https://github.com/crystldm/reinicorn-kb/pull/8
+---
 # Remove the kb submodule
-
-**Date:** 2026-07-26
-**Author:** Michael Biehl
-**Status:** in-review
-**Origin:** ai-assisted
-**Human-validated:** false
-**Review-PR:** https://github.com/crystldm/reinicorn-kb/pull/8
 
 ## Problem
 
@@ -123,8 +128,8 @@ real and is addressed in §3.
 - No pointer exists, so it cannot drift, dangle, or generate bump PRs.
 - CI always reads the current kb `main`, never a snapshot.
 - A fresh clone reaches a working, current kb in one documented command.
-- Nothing under `kb/` can be committed into the parent repo, accidentally or
-  otherwise.
+- No normal workflow commits anything under `kb/` into the parent repo, and
+  CI rejects anything that slips past the local guards.
 - `commit_kb()` never commits unless the kb is genuinely on an up-to-date
   `main`; if it cannot get there, it fails loudly.
 - Existing repos are migrated automatically, without a manual checklist.
@@ -167,7 +172,7 @@ gitlink and zero files under it. The real failure mode is therefore not a
 entry to resolve it, which reintroduces exactly the drift this spec removes and
 is more confusing than the submodule was.
 
-Two layers:
+Three layers:
 
 - `kb/` in `.gitignore` (parent repo, and written by `init` into consumer
   repos). This alone prevents the accident in normal use.
@@ -176,9 +181,14 @@ Two layers:
   `HOOK_NAMES` in `src/reinicorn/commands/hooks_install.py:14` is currently
   `("post-checkout", "post-merge", "pre-push")`; this adds a fourth, plus a new
   `hooks/pre-commit`. The install mechanism itself is unchanged.
+- A CI check that fails when the parent tree tracks any path under `kb/` or a
+  mode-`160000` `kb` gitlink — the server-side backstop, and the only layer a
+  contributor cannot bypass.
 
-The hook is the part worth insisting on: `.gitignore` is a convention that
-`git add -f` and a stray `git submodule add` both defeat.
+The hook is the part worth insisting on locally: `.gitignore` is a convention
+that `git add -f` and a stray `git submodule add` both defeat. But the hook is
+client-side too — `git commit --no-verify` skips it — which is why the CI
+check is the layer the goal above actually rests on.
 
 ### 4. Bootstrap: `rcorn kb sync` clones when absent
 
@@ -211,10 +221,14 @@ Rewrite it to mean "the kb is on an up-to-date `main`", and to report failure:
 - Return success/failure instead of discarding it. Keep uncommitted kb work
   intact — abort rather than force.
 
-`commit_kb()` must check that result and refuse to stage or commit when the kb
-is not on a clean, current `main`, printing what is wrong and how to fix it (per
-golden principle 4). Committing into a detached HEAD is never acceptable: the
-work looks saved and is not.
+`commit_kb()` must check that result and refuse to stage or commit when it
+reports failure, printing what is wrong and how to fix it (per golden
+principle 4). The precondition is branch state, not a pristine worktree — the
+uncommitted doc edits are exactly what `commit_kb()` exists to commit: HEAD on
+`main`, local `main` not behind `origin/main`. Staging remains `git add -A`
+inside the kb, which holds only kb docs, so there is no unrelated-work class
+to exclude. Committing into a detached HEAD is never acceptable: the work
+looks saved and is not.
 
 Fetch cost: one network round trip per kb-writing command. `sync` and `publish`
 already hit the network; `doc create` and `plan create` do not, so this makes
@@ -277,23 +291,28 @@ This is a breaking change to `rcorn init` and to every repo that already adopted
 Reinicorn. `upgrades/` is currently just a README, so the release-notes path
 gets its first real entry.
 
-`rcorn init` (and `rcorn update`) detect a `.gitmodules` kb entry and migrate in
-place:
+`rcorn init` (and `rcorn update`) detect a kb submodule by inspecting the index
+for a mode-`160000` `kb` entry, not just `.gitmodules` — an orphan gitlink with
+no `.gitmodules` section (the state §3 warns about) migrates too, with the
+steps that assume a registered submodule (deinit, `.gitmodules` edits) skipped
+when not applicable — and migrate in place:
 
-1. `git submodule deinit -f kb`
-2. `git rm --cached kb` and remove the `[submodule "kb"]` section from
+1. Check the old `kb/` for uncommitted or unpushed work and refuse the
+   migration until it is published. This runs before anything destructive:
+   every later step assumes the old worktree is disposable.
+2. `git submodule deinit -f kb`
+3. `git rm --cached kb` and remove the `[submodule "kb"]` section from
    `.gitmodules`; delete `.gitmodules` if it becomes empty
-3. `git config --remove-section submodule.kb`
-4. Move `.git/modules/kb` aside or re-clone `kb/` fresh from
+4. `git config --remove-section submodule.kb`
+5. Move `.git/modules/kb` aside or re-clone `kb/` fresh from
    `REINICORN_KB_REMOTE`
-5. Add `kb/` to `.gitignore`
-6. Install the `pre-commit` hook
+6. Add `kb/` to `.gitignore`
+7. Install the `pre-commit` hook
 
-Steps 1–3 leave staged changes in the parent that the user must commit; the
+Steps 2–4 leave staged changes in the parent that the user must commit; the
 command prints exactly what to commit rather than committing on their behalf.
-Any uncommitted or unpushed work inside the old `kb/` must be detected and the
-migration refused until it is published — losing a draft to a migration would be
-unforgivable, and step 4 is where that would happen.
+Step 1 is deliberately first — losing a draft to a migration would be
+unforgivable, and steps 2 and 5 are where that would happen.
 
 ## Non-Goals
 

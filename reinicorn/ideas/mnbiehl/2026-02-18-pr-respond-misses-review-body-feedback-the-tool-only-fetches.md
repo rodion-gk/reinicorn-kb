@@ -1,8 +1,14 @@
-# pr-respond misses review-body feedback: the tool only fetches inline PR comments
+---
+type: idea
+title: 'pr-respond misses review-body feedback: the tool only fetches inline PR comments'
+slug: 2026-02-18-pr-respond-misses-review-body-feedback-the-tool-only-fetches
+lifecycle: active
+status: new
+created: 2026-02-18
+author: mnbiehl
+---
 
-**Date:** 2026-02-18
-**Author:** mnbiehl
-**Status:** new
+# pr-respond misses review-body feedback: the tool only fetches inline PR comments
 
 ## Description
 

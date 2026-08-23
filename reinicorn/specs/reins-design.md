@@ -1,8 +1,14 @@
-# Reins: Agentic Engineering Harness Template
+---
+type: spec
+title: 'Reins: Agentic Engineering Harness Template'
+slug: reins-design
+lifecycle: active
+status: Approved
+created: 2026-02-13
+author: Michael + Claude
+---
 
-**Date:** 2026-02-13
-**Status:** Approved
-**Author:** Michael + Claude
+# Reins: Agentic Engineering Harness Template
 
 ## Overview
 

@@ -1,8 +1,14 @@
-# Worktree kb init uses the .gitmodules HTTPS URL and drops the main checkout SSH 
+---
+type: idea
+title: Worktree kb init uses the .gitmodules HTTPS URL and drops the main checkout SSH
+slug: worktree-kb-init-uses-the-gitmodules-https-url-and-drops-the
+lifecycle: active
+status: new
+created: 2026-07-27
+author: Michael Biehl
+---
 
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** new
+# Worktree kb init uses the .gitmodules HTTPS URL and drops the main checkout SSH 
 
 ## Description
 

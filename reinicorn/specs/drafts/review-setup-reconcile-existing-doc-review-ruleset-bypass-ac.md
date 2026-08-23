@@ -1,10 +1,16 @@
-# review setup: reconcile existing doc-review ruleset bypass actors
+---
+type: spec
+title: 'review setup: reconcile existing doc-review ruleset bypass actors'
+slug: review-setup-reconcile-existing-doc-review-ruleset-bypass-ac
+lifecycle: active
+status: draft
+created: 2026-07-24
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-07-24
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
+# review setup: reconcile existing doc-review ruleset bypass actors
 
 Closes #15.
 

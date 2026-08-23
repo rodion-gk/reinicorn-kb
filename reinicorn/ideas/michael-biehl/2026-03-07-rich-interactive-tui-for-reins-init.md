@@ -1,8 +1,14 @@
-# Rich interactive TUI for reins init
+---
+type: idea
+title: Rich interactive TUI for reins init
+slug: 2026-03-07-rich-interactive-tui-for-reins-init
+lifecycle: active
+status: new
+created: 2026-03-07
+author: Michael Biehl
+---
 
-**Date:** 2026-03-07
-**Author:** Michael Biehl
-**Status:** new
+# Rich interactive TUI for reins init
 
 ## Description
 

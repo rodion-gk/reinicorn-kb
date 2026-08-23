@@ -1,11 +1,17 @@
-# Enforce the review lane: draft-refs resolution, declared plan spec, and a push gate
+---
+type: spec
+title: 'Enforce the review lane: draft-refs resolution, declared plan spec, and a push gate'
+slug: enforce-the-review-lane-draft-refs-resolution-declared-plan
+lifecycle: active
+status: approved
+created: 2026-07-25
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+review_pr: https://github.com/crystldm/reinicorn-kb/pull/5
+---
 
-**Date:** 2026-07-25
-**Author:** Michael Biehl
-**Status:** approved
-**Origin:** ai-assisted
-**Human-validated:** false
-**Review-PR:** https://github.com/crystldm/reinicorn-kb/pull/5
+# Enforce the review lane: draft-refs resolution, declared plan spec, and a push gate
 
 Closes #23.
 

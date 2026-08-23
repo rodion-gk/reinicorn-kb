@@ -1,8 +1,14 @@
-# Document provenance tracking for all harness docs. Every doc needs frontmatter t
+---
+type: idea
+title: Document provenance tracking for all harness docs. Every doc needs frontmatter t
+slug: 2026-02-21-document-provenance-tracking-for-all-harness-docs-every-doc
+lifecycle: active
+status: new
+created: 2026-02-21
+author: Michael Biehl
+---
 
-**Date:** 2026-02-21
-**Author:** Michael Biehl
-**Status:** new
+# Document provenance tracking for all harness docs. Every doc needs frontmatter t
 
 ## Description
 

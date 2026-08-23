@@ -1,10 +1,17 @@
-# Execution Plan: feat/unified-kb-doc-frontmatter
+---
+type: plan
+title: 'Execution Plan: feat/unified-kb-doc-frontmatter'
+slug: feat-unified-kb-doc-frontmatter
+lifecycle: active
+status: planning
+created: 2026-07-27
+author: Michael Biehl
+branch: feat/unified-kb-doc-frontmatter
+ticket: N/A
+spec: specs/unified-kb-doc-frontmatter-schema.md
+---
 
-**Ticket:** N/A
-**Spec:** specs/unified-kb-doc-frontmatter-schema.md
-**Author:** Michael Biehl
-**Created:** 2026-07-27
-**Status:** planning
+# Execution Plan: feat/unified-kb-doc-frontmatter
 
 ## Goal
 
@@ -109,10 +116,17 @@ Assumptions:
 
 ### 2. Migration
 
-- [ ] `rcorn kb migrate-frontmatter [--dry-run]` in
-      `commands/kb_migrate.py` — a real command, not a throwaway script, since
-      adopting repos have kbs with the same legacy blocks. Register in `cli.py`
-      (`kb_sub` parser ~line 151, dispatch table ~line 282).
+- [ ] **Ad-hoc script, not a CLI command** (decided 2026-07-27). The earlier
+      plan argued for `rcorn kb migrate-frontmatter` on the grounds that
+      adopting repos carry the same legacy blocks. There are no adopting repos:
+      `rcorn kb list` reports two scopes, `reinicorn/` and `generated/`, and
+      `generated/` is excluded from doc scans. This is a one-shot over one
+      scope in one kb. A permanent command would mean cli.py surface, a
+      dispatch entry, idempotency guarantees, and wheel/sdist weight — forever,
+      for an operation that runs once.
+      The script lives in the session scratchpad and is appended verbatim to
+      this plan when it runs, so the kb records how the corpus was rewritten
+      without shipping dead code.
 - [ ] Scan **all** leading `**Key:** value` runs, not just the first —
       `_header_span` stops at a blank line, but tech-debt docs carry a second
       block (`**Severity:** / **Domain:** / **Remediation:**`).
@@ -148,16 +162,28 @@ Assumptions:
       lines from the header run keeps the rest in place.
 - [ ] Derive `lifecycle` from `status` per the spec's table, keeping `status`
       verbatim; `slug` from filename stem; `title` from H1 (H1 stays in body).
-- [ ] **Exactly 4 docs need synthesis** (no anchored header):
-      `exec-plans/completed/{fix-security-critical-mvp,mvp-unified-attach,
-      skills-fork-template-docs}/plan.md` — type `plan`, `branch` from the dir
+- [ ] **5 docs need synthesis** (no anchored header): the four completed plans
+      `feature-cross-platform-support/plan.md`, `fix-security-critical-mvp/plan.md`,
+      `mvp-unified-attach/2026-02-19-mvp-unified-attach-plan.md`, and
+      `skills-fork-template-docs/plan.md` — type `plan`, `branch` from the dir
       name, `lifecycle: done` (they are under `completed/`), `created`/`author`
       from git history — and `golden-principles.md` (type `principle`).
 - [ ] `# Execution Plan: <branch>` → `branch:` field + a generic H1.
 - [ ] Unmapped legacy keys are reported and fail the run, never silently dropped.
-- [ ] 113 of 134 kb `.md` files carry a legacy block; the rest are excluded
-      non-docs plus a few header-less plans that get frontmatter synthesized
-      from path + git history.
+- [ ] **Verification moves from the script to its output.** A throwaway script
+      gets no unit tests; correctness is asserted on the 118 rewritten files:
+      1. **Body preservation (the safety property):** for every doc, the new
+         body is byte-identical to the original text minus exactly the
+         allow-listed header lines. Nothing else may move.
+      2. `frontmatter.validate()` returns `[]` for all 123 docs.
+      3. `dumps(*parse(text)) == text` for every migrated file.
+      4. `rcorn kb lint` green with `kb/frontmatter` at `error`.
+      5. Human review of the kb PR diff.
+      Run 1–3 as a checker script over the working tree *before* committing, so
+      a bad rewrite never reaches a commit.
+- [ ] 118 of 144 kb `.md` files carry a legacy block; the rest are 21 excluded
+      non-docs plus the 5 header-less docs above, which get frontmatter
+      synthesized from path + git history. 118 + 5 = the 123 migrated docs.
 
 ### 3. Repoint consumers
 

@@ -1,10 +1,17 @@
-# Retro: feature/reinicorn-identity-and-assets
+---
+type: retro
+title: 'Retro: feature/reinicorn-identity-and-assets'
+slug: feature-reinicorn-identity-and-assets
+lifecycle: active
+status: draft
+created: 2026-07-16
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+branch: feature-reinicorn-identity-and-assets
+---
 
-**Date:** 2026-07-16
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
+# Retro: feature/reinicorn-identity-and-assets
 
 ## What Went Well
 

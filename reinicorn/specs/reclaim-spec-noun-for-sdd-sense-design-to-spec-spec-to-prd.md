@@ -1,10 +1,16 @@
-# Reclaim spec noun for SDD sense (design to spec, spec to prd)
+---
+type: spec
+title: Reclaim spec noun for SDD sense (design to spec, spec to prd)
+slug: reclaim-spec-noun-for-sdd-sense-design-to-spec-spec-to-prd
+lifecycle: done
+status: complete
+created: 2026-06-08
+author: Michael Biehl
+origin: ai-assisted
+human_validated: true
+---
 
-**Date:** 2026-06-08
-**Author:** Michael Biehl
-**Status:** complete
-**Origin:** ai-assisted
-**Human-validated:** true
+# Reclaim spec noun for SDD sense (design to spec, spec to prd)
 
 ## Problem
 

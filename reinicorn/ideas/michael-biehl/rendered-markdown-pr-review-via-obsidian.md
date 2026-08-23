@@ -1,10 +1,16 @@
-# Rendered-markdown PR Review via Obsidian
+---
+type: idea
+title: Rendered-markdown PR Review via Obsidian
+slug: rendered-markdown-pr-review-via-obsidian
+lifecycle: active
+status: new
+created: 2026-07-27
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** new
-**Origin:** ai-assisted
-**Human-validated:** false
+# Rendered-markdown PR Review via Obsidian
 
 ## The actual problem
 

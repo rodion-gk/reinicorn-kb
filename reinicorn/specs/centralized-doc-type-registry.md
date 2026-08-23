@@ -1,10 +1,16 @@
-# Centralized Doc-Type Registry
+---
+type: spec
+title: Centralized Doc-Type Registry
+slug: centralized-doc-type-registry
+lifecycle: done
+status: implemented
+created: 2026-02-26
+author: mnbiehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-02-26
-**Author:** mnbiehl
-**Status:** implemented
-**Origin:** ai-assisted
-**Human-validated:** false
+# Centralized Doc-Type Registry
 
 ## Problem
 

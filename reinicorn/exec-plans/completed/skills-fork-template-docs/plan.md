@@ -1,3 +1,14 @@
+---
+type: plan
+title: Skills Fork + Template-Driven Docs — Implementation Plan
+slug: skills-fork-template-docs
+lifecycle: done
+status: done
+created: 2026-07-17
+author: Michael Biehl
+branch: skills-fork-template-docs
+---
+
 # Skills Fork + Template-Driven Docs — Implementation Plan
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
@@ -30,14 +41,12 @@ import subprocess
 
 from reins.git import repo_slug
 
-
 def test_repo_slug_from_ssh_url():
     with patch("reins.git.run_git") as mock:
         mock.return_value = subprocess.CompletedProcess(
             args=[], returncode=0, stdout="git@github.com:mnbiehl/reins.git\n"
         )
         assert repo_slug() == "reins"
-
 
 def test_repo_slug_from_https_url():
     with patch("reins.git.run_git") as mock:
@@ -46,7 +55,6 @@ def test_repo_slug_from_https_url():
         )
         assert repo_slug() == "reins"
 
-
 def test_repo_slug_strips_trailing_git():
     with patch("reins.git.run_git") as mock:
         mock.return_value = subprocess.CompletedProcess(
@@ -54,14 +62,12 @@ def test_repo_slug_strips_trailing_git():
         )
         assert repo_slug() == "my-project"
 
-
 def test_repo_slug_no_git_suffix():
     with patch("reins.git.run_git") as mock:
         mock.return_value = subprocess.CompletedProcess(
             args=[], returncode=0, stdout="https://github.com/your-org/foo\n"
         )
         assert repo_slug() == "foo"
-
 
 def test_repo_slug_fallback_on_error():
     with patch("reins.git.run_git", side_effect=Exception("no remote")):
@@ -135,13 +141,11 @@ from unittest.mock import patch
 
 from reins.harness import repo_harness_dir
 
-
 def test_repo_harness_dir_creates_directory(harness_repo: Path):
     with patch("reins.harness.repo_slug", return_value="myproject"):
         result = repo_harness_dir(harness_repo / "harness")
     assert result == harness_repo / "harness" / "myproject"
     assert result.is_dir()
-
 
 def test_repo_harness_dir_is_idempotent(harness_repo: Path):
     with patch("reins.harness.repo_slug", return_value="myproject"):
@@ -649,7 +653,6 @@ from unittest.mock import patch
 
 from reins.commands.doc_create import cmd_doc_create
 
-
 def test_create_design_doc(harness_repo: Path):
     with patch("reins.commands.doc_create.repo_root", return_value=harness_repo), \
          patch("reins.commands.doc_create.run_git") as mock_git, \
@@ -674,7 +677,6 @@ def test_create_design_doc(harness_repo: Path):
     assert "## Non-Goals" in content
     mock_commit.assert_called_once()
 
-
 def test_create_spec_doc(harness_repo: Path):
     with patch("reins.commands.doc_create.repo_root", return_value=harness_repo), \
          patch("reins.commands.doc_create.run_git") as mock_git, \
@@ -693,7 +695,6 @@ def test_create_spec_doc(harness_repo: Path):
     assert "## Acceptance Criteria" in content
     assert "## Out of Scope" in content
 
-
 def test_create_debt_doc(harness_repo: Path):
     with patch("reins.commands.doc_create.repo_root", return_value=harness_repo), \
          patch("reins.commands.doc_create.run_git") as mock_git, \
@@ -710,7 +711,6 @@ def test_create_debt_doc(harness_repo: Path):
     content = doc.read_text()
     assert "**Severity:**" in content
     assert "**Remediation:**" in content
-
 
 def test_create_retro_doc(harness_repo: Path):
     with patch("reins.commands.doc_create.repo_root", return_value=harness_repo), \
@@ -730,7 +730,6 @@ def test_create_retro_doc(harness_repo: Path):
     assert "## What Worked" in content
     assert "## What Didn't" in content
 
-
 def test_create_idea_delegates_to_idea_command(harness_repo: Path):
     with patch("reins.commands.doc_create.cmd_idea") as mock_idea:
         mock_idea.return_value = 0
@@ -739,11 +738,9 @@ def test_create_idea_delegates_to_idea_command(harness_repo: Path):
     assert result == 0
     mock_idea.assert_called_once_with("some cool idea")
 
-
 def test_create_invalid_type():
     result = cmd_doc_create("invalid", "test")
     assert result == 1
-
 
 def test_create_empty_title():
     result = cmd_doc_create("design", "")
@@ -771,9 +768,7 @@ from reins import console
 from reins.git import current_branch, repo_root, repo_slug, run_git
 from reins.harness import commit_harness, require_harness_dir
 
-
 _DOC_TYPES = {"design", "plan", "idea", "spec", "debt", "retro", "principle"}
-
 
 def _get_author() -> str:
     try:
@@ -781,10 +776,8 @@ def _get_author() -> str:
     except Exception:
         return "unknown"
 
-
 def _slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower())[:60].rstrip("-")
-
 
 def _provenance(title: str, author: str, status: str = "draft") -> str:
     return (
@@ -796,7 +789,6 @@ def _provenance(title: str, author: str, status: str = "draft") -> str:
         f"**Origin:** ai-assisted\n"
         f"**Human-validated:** false\n"
     )
-
 
 def _create_design(repo_dir: Path, title: str, author: str) -> Path:
     slug = _slugify(title)
@@ -810,7 +802,6 @@ def _create_design(repo_dir: Path, title: str, author: str) -> Path:
         "\n## Non-Goals\n\n_What this explicitly does not cover._\n"
     )
     return target
-
 
 def _create_plan(repo_dir: Path, title: str, author: str) -> Path:
     branch = current_branch() or "unknown"
@@ -829,7 +820,6 @@ def _create_plan(repo_dir: Path, title: str, author: str) -> Path:
     (target_dir / "decisions.md").write_text("# Decisions\n")
     return plan_file
 
-
 def _create_spec(repo_dir: Path, title: str, author: str) -> Path:
     slug = _slugify(title)
     target = repo_dir / "product-specs" / f"{slug}.md"
@@ -844,7 +834,6 @@ def _create_spec(repo_dir: Path, title: str, author: str) -> Path:
     )
     return target
 
-
 def _create_debt(repo_dir: Path, title: str, author: str) -> Path:
     slug = _slugify(title)
     target = repo_dir / "tech-debt" / "by-domain" / f"{slug}.md"
@@ -857,7 +846,6 @@ def _create_debt(repo_dir: Path, title: str, author: str) -> Path:
         "\n## Remediation\n\n_How to fix it._\n"
     )
     return target
-
 
 def _create_retro(repo_dir: Path, title: str, author: str) -> Path:
     branch = current_branch() or "unknown"
@@ -873,7 +861,6 @@ def _create_retro(repo_dir: Path, title: str, author: str) -> Path:
         "\n## Follow-ups\n\n- [ ] _Action item_\n"
     )
     return target
-
 
 def _create_principle(repo_dir: Path, title: str, author: str) -> Path:
     target = repo_dir / "golden-principles.md"
@@ -896,7 +883,6 @@ def _create_principle(repo_dir: Path, title: str, author: str) -> Path:
     )
     return target
 
-
 _CREATORS = {
     "design": _create_design,
     "plan": _create_plan,
@@ -905,7 +891,6 @@ _CREATORS = {
     "retro": _create_retro,
     "principle": _create_principle,
 }
-
 
 def cmd_doc_create(doc_type: str, title: str) -> int:
     if not title.strip():

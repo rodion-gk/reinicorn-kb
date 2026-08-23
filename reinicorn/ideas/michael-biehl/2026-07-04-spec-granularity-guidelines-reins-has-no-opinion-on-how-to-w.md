@@ -1,8 +1,14 @@
-# Spec granularity guidelines: reins has no opinion on HOW to write specs/plans. A
+---
+type: idea
+title: 'Spec granularity guidelines: reins has no opinion on HOW to write specs/plans. A'
+slug: 2026-07-04-spec-granularity-guidelines-reins-has-no-opinion-on-how-to-w
+lifecycle: active
+status: new
+created: 2026-07-04
+author: Michael Biehl
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** new
+# Spec granularity guidelines: reins has no opinion on HOW to write specs/plans. A
 
 ## Description
 

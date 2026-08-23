@@ -1,3 +1,15 @@
+---
+type: plan
+title: Fix Critical Security Vulnerabilities Implementation Plan
+slug: fix-security-critical-mvp
+lifecycle: dropped
+status: abandoned
+created: 2026-03-24
+author: Michael Biehl
+branch: fix-security-critical-mvp
+ticket: N/A
+---
+
 # Fix Critical Security Vulnerabilities Implementation Plan
 
 > **For Claude:** REQUIRED SUB-SKILL: Use executing-plans to implement this plan task-by-task.
@@ -11,11 +23,6 @@
 ---
 
 ## Execution Plan: fix/security-critical-mvp
-
-**Ticket:** N/A
-**Author:** Michael Biehl
-**Created:** 2026-03-24
-**Status:** abandoned
 
 ## Acceptance Criteria
 - [ ] SEC-01: `REINS_AGENT_CMD` parsed as argv list, executed with `shell=False`
@@ -58,7 +65,6 @@ from __future__ import annotations
 import pytest
 
 from reins.validation import validate_safe_name
-
 
 class TestValidateSafeName:
     """SEC-04, SEC-05: name validation rejects path traversal and shell metacharacters."""
@@ -124,7 +130,6 @@ import re
 # Alphanumeric, hyphens, underscores, dots. Must start with alphanumeric.
 _SAFE_NAME_RE = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9._-]*$")
 
-
 def validate_safe_name(name: str) -> str:
     """Validate that a name is safe for use in filesystem paths.
 
@@ -175,7 +180,6 @@ def test_agent_run_rejects_path_traversal(harness_repo, capsys):
     captured = capsys.readouterr()
     assert "path traversal" in captured.err.lower() or "Invalid name" in captured.err
 
-
 def test_agent_run_rejects_shell_metachar(harness_repo, capsys):
     """SEC-05: task_name with shell metacharacters must be rejected."""
     with patch("reins.commands.agent.repo_root", return_value=harness_repo), \
@@ -183,7 +187,6 @@ def test_agent_run_rejects_shell_metachar(harness_repo, capsys):
         result = cmd_agent_run("task;rm -rf /")
 
     assert result == 1
-
 
 def test_agent_log_rejects_path_traversal(harness_repo, capsys):
     """SEC-05: job_id with path traversal must be rejected."""
@@ -260,12 +263,10 @@ def test_find_extension_rejects_traversal(tmp_path: Path):
     with pytest.raises(ValueError, match="path traversal|Invalid name"):
         find_extension("../../etc", tmp_path)
 
-
 def test_find_extension_rejects_dotdot(tmp_path: Path):
     """SEC-04: '..' as extension name must be rejected."""
     with pytest.raises(ValueError, match="path traversal|Invalid name"):
         find_extension("..", tmp_path)
-
 
 def test_apply_extension_rejects_traversal(tmp_path: Path):
     """SEC-04: apply_extension with path traversal must be rejected."""
@@ -371,7 +372,6 @@ def test_apply_extension_rejects_copy_traversal_src(tmp_path: Path, harness_repo
     result = apply_extension("evil-ext", harness_repo)
     assert result == 1  # should fail, not copy
 
-
 def test_apply_extension_rejects_copy_traversal_dest(tmp_path: Path, harness_repo: Path):
     """SEC-02: copy dest escaping project dir must be rejected."""
     ext_dir = harness_repo / "extensions" / "stacks" / "evil-ext"
@@ -386,7 +386,6 @@ def test_apply_extension_rejects_copy_traversal_dest(tmp_path: Path, harness_rep
     result = apply_extension("evil-ext", harness_repo)
     assert result == 1
 
-
 def test_apply_extension_rejects_append_traversal(tmp_path: Path, harness_repo: Path):
     """SEC-02: append target escaping project dir must be rejected."""
     ext_dir = harness_repo / "extensions" / "stacks" / "evil-ext"
@@ -400,7 +399,6 @@ def test_apply_extension_rejects_append_traversal(tmp_path: Path, harness_repo: 
 
     result = apply_extension("evil-ext", harness_repo)
     assert result == 1
-
 
 def test_apply_extension_rejects_hook_traversal(harness_repo: Path):
     """SEC-03: hook name with traversal must be rejected."""
@@ -440,7 +438,6 @@ VALID_GIT_HOOKS = frozenset({
     "post-index-change",
 })
 
-
 def validate_hook_name(name: str) -> str:
     """Validate that a hook name is a recognized git hook.
 
@@ -461,7 +458,6 @@ Add a helper at module level:
 
 ```python
 from reins.validation import validate_hook_name, validate_safe_name
-
 
 def _check_path_escape(resolved: Path, boundary: Path, label: str) -> None:
     """Raise if resolved path escapes the boundary directory."""
@@ -558,7 +554,6 @@ def test_agent_run_rejects_shell_metachar_in_config(harness_repo, capsys):
     captured = capsys.readouterr()
     assert "shell" in captured.err.lower() or "unsafe" in captured.err.lower()
 
-
 def test_agent_run_uses_shell_false(harness_repo):
     """SEC-01: Popen must be called with shell=False."""
     task_dir = harness_repo / "harness" / "agent-tasks"
@@ -621,14 +616,12 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
-
 def main(exit_code: int, meta_path: Path) -> None:
     m = json.loads(meta_path.read_text())
     m["finished"] = datetime.now(UTC).isoformat()
     m["exit_code"] = exit_code
     m["status"] = "completed" if exit_code == 0 else "failed"
     meta_path.write_text(json.dumps(m, indent=2) + "\n")
-
 
 if __name__ == "__main__":
     main(int(sys.argv[1]), Path(sys.argv[2]))
@@ -643,7 +636,6 @@ import re
 import sys
 
 _UNSAFE_CMD_RE = re.compile(r"[;|&`$(){}]")
-
 
 def _parse_agent_cmd(agent_cmd: str) -> list[str]:
     """Parse REINS_AGENT_CMD into an argv list.

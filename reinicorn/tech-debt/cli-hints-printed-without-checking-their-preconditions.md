@@ -1,14 +1,19 @@
+---
+type: debt
+title: CLI hints printed without checking their preconditions
+slug: cli-hints-printed-without-checking-their-preconditions
+lifecycle: active
+status: draft
+created: 2026-07-09
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+category: cli
+severity: low
+remediation: planned
+---
+
 # CLI hints printed without checking their preconditions
-
-**Date:** 2026-07-09
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
-
-**Severity:** low
-**Domain:** cli
-**Remediation:** planned
 
 ## Impact
 

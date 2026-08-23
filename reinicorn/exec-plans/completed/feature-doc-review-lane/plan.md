@@ -1,12 +1,19 @@
+---
+type: plan
+title: 'Execution Plan: feature/doc-review-lane'
+slug: feature-doc-review-lane
+lifecycle: done
+status: complete
+created: 2026-07-06
+author: Michael Biehl
+branch: feature/doc-review-lane
+ticket: N/A
+spec: kb/reins/specs/doc-review-lane-pr-style-review-for-gated-kb-docs.md
+---
+
 # Execution Plan: feature/doc-review-lane
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-
-**Ticket:** N/A
-**Author:** Michael Biehl
-**Created:** 2026-07-06
-**Status:** complete
-**Spec:** `kb/reins/specs/doc-review-lane-pr-style-review-for-gated-kb-docs.md`
 
 ## Goal
 
@@ -71,19 +78,15 @@ from reins.doc_types import (
     DRAFTS_DIR_NAME, REGISTRY, drafts_dir, gated_types,
 )
 
-
 def test_spec_is_gated():
     assert REGISTRY["spec"].gated is True
-
 
 def test_only_spec_gated_in_v1():
     assert [dt.key for dt in gated_types()] == ["spec"]
 
-
 def test_gated_defaults_false():
     assert REGISTRY["plan"].gated is False
     assert REGISTRY["idea"].gated is False
-
 
 def test_drafts_dir_under_type_dir():
     repo_dir = Path("/kb/myrepo")
@@ -109,11 +112,9 @@ In `REGISTRY["spec"]` add `gated=True,` after `required_sections=(...)`.
 ```python
 DRAFTS_DIR_NAME = "drafts"
 
-
 def drafts_dir(key: str, repo_dir: Path) -> Path:
     """Drafts annex for a gated doc type within a repo scope dir."""
     return repo_dir / REGISTRY[key].dir_path / DRAFTS_DIR_NAME
-
 
 def gated_types() -> list[DocType]:
     """All review-gated doc types (drafts lifecycle applies)."""
@@ -180,12 +181,10 @@ DOC = (
     "\n## Problem\n\nBody **Status:** decoy\n"
 )
 
-
 def test_get_field():
     assert get_field(DOC, "Status") == "draft"
     assert get_field(DOC, "Author") == "Test"
     assert get_field(DOC, "Review-PR") is None
-
 
 def test_set_existing_field_only_in_header():
     out = set_field(DOC, "Status", "in-review")
@@ -193,18 +192,15 @@ def test_set_existing_field_only_in_header():
     assert "decoy" in out  # body untouched
     assert out.count("**Status:**") == 2  # header + body decoy
 
-
 def test_set_new_field_appends_to_header_block():
     out = set_field(DOC, "Review-PR", "https://github.com/x/y/pull/9")
     lines = out.splitlines()
     idx = lines.index("**Review-PR:** https://github.com/x/y/pull/9")
     assert lines[idx - 1] == "**Origin:** ai-assisted"
 
-
 def test_remove_field():
     out = remove_field(set_field(DOC, "Review-PR", "u"), "Review-PR")
     assert get_field(out, "Review-PR") is None
-
 
 def test_remove_missing_field_is_noop():
     assert remove_field(DOC, "Review-PR") == DOC
@@ -243,7 +239,6 @@ STATUS_APPROVED = "approved"
 
 _FIELD_LINE = re.compile(r"^\*\*([A-Za-z-]+):\*\*\s*(.*)$")
 
-
 def _header_span(lines: list[str]) -> tuple[int, int]:
     """(start, end) line indexes of the header field block (end exclusive).
 
@@ -258,7 +253,6 @@ def _header_span(lines: list[str]) -> tuple[int, int]:
         i += 1
     return start, i
 
-
 def get_field(text: str, field: str) -> str | None:
     lines = text.splitlines()
     start, end = _header_span(lines)
@@ -267,7 +261,6 @@ def get_field(text: str, field: str) -> str | None:
         if m and m.group(1) == field:
             return m.group(2).strip()
     return None
-
 
 def set_field(text: str, field: str, value: str) -> str:
     lines = text.splitlines()
@@ -281,7 +274,6 @@ def set_field(text: str, field: str, value: str) -> str:
         lines.insert(end, f"**{field}:** {value}")
     out = "\n".join(lines)
     return out + "\n" if text.endswith("\n") else out
-
 
 def remove_field(text: str, field: str) -> str:
     lines = text.splitlines()
@@ -324,7 +316,6 @@ def test_spec_create_writes_to_drafts(kb_repo, monkeypatch):
     assert target.is_file()
     assert "**Status:** draft" in target.read_text()
 
-
 def test_prd_create_stays_flat(kb_repo, monkeypatch):
     monkeypatch.chdir(kb_repo)
     from reins.commands.doc_create import cmd_prd_create
@@ -344,13 +335,11 @@ Expected: `test_spec_create_writes_to_drafts` FAILS (file created at `specs/my-g
 ```python
 from reins.doc_types import DRAFTS_DIR_NAME, REGISTRY, get_protected_map
 
-
 def _typed_dir(doc_type: str, repo_dir: Path) -> Path:
     """Directory a new doc of this type is created in (drafts annex when gated)."""
     dt = REGISTRY[doc_type]
     base = repo_dir / dt.dir_path
     return base / DRAFTS_DIR_NAME if dt.gated else base
-
 
 def _create_spec(repo_dir: Path, title: str, author: str) -> Path:
     slug = _slugify(title)
@@ -406,7 +395,6 @@ def _mk_spec(repo_dir, name, status="approved", drafts=False):
         f"# {name}\n\n**Status:** {status}\n\n## Problem\n\nx\n"
     )
 
-
 def test_list_excludes_drafts_by_default(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
     repo_dir = kb_repo / "kb" / "testproject"
@@ -417,7 +405,6 @@ def test_list_excludes_drafts_by_default(kb_repo, monkeypatch, capsys):
     out = capsys.readouterr().out
     assert "landed" in out and "wip" not in out
 
-
 def test_list_include_drafts_marks_them(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
     repo_dir = kb_repo / "kb" / "testproject"
@@ -426,7 +413,6 @@ def test_list_include_drafts_marks_them(kb_repo, monkeypatch, capsys):
     assert cmd_doc_list("spec", include_drafts=True) == 0
     out = capsys.readouterr().out
     assert "[DRAFT]" in out and "wip" in out
-
 
 def test_show_finds_draft_only_with_flag(kb_repo, monkeypatch, capsys):
     monkeypatch.chdir(kb_repo)
@@ -445,7 +431,6 @@ Expected: FAIL — `TypeError: cmd_doc_list() got an unexpected keyword argument
 
 ```python
 from reins.doc_types import DRAFTS_DIR_NAME, REGISTRY
-
 
 def _doc_files(
     doc_type: str, repo_dir: Path, include_drafts: bool = False,
@@ -517,13 +502,11 @@ def test_gh_pr_create_returns_url(mock_run_gh_success):
     # command included: --repo o/r --head review/myrepo/spec-x
     # and one --reviewer flag per reviewer
 
-
 def test_gh_pr_view_parses_json(mock_run_gh_json):
     # mock stdout: '{"number":7,"state":"OPEN","reviewDecision":"APPROVED","url":"u"}'
     from reins.github import gh_pr_view
     pr = gh_pr_view("o/r", head="review/myrepo/spec-x")
     assert pr["number"] == 7 and pr["reviewDecision"] == "APPROVED"
-
 
 def test_gh_pr_view_none_when_no_pr(mock_run_gh_failure):
     from reins.github import gh_pr_view
@@ -537,11 +520,9 @@ def test_gh_pr_view_none_when_no_pr(mock_run_gh_failure):
 ```python
 import json
 
-
 # GitHub API enum values (external contract, mirrored once here)
 PR_STATE_OPEN = "OPEN"
 REVIEW_DECISION_APPROVED = "APPROVED"
-
 
 def gh_pr_create(
     repo: str, *, head: str, title: str, body: str,
@@ -556,7 +537,6 @@ def gh_pr_create(
         args.extend(["--reviewer", r])
     return run_gh(*args).stdout.strip()
 
-
 def gh_pr_view(repo: str, *, head: str) -> dict | None:
     """PR metadata for the open/merged PR whose head is *head*, or None."""
     r = run_gh(
@@ -568,10 +548,8 @@ def gh_pr_view(repo: str, *, head: str) -> dict | None:
         return None
     return json.loads(r.stdout)
 
-
 def gh_pr_merge(repo: str, number: int) -> None:
     run_gh("pr", "merge", str(number), "--repo", repo, "--squash")
-
 
 def gh_pr_close(repo: str, number: int, comment: str = "") -> None:
     args = ["pr", "close", str(number), "--repo", repo]
@@ -607,10 +585,8 @@ from reins.review import (
     ReviewTarget, gh_repo_from_url, pr_new_url, resolve_draft, review_branch,
 )
 
-
 def test_review_branch_is_repo_scoped():
     assert review_branch("myrepo", "spec", "my-slug") == "review/myrepo/spec-my-slug"
-
 
 @pytest.mark.parametrize("url", [
     "git@github.com:owner/name-kb.git",
@@ -620,16 +596,13 @@ def test_review_branch_is_repo_scoped():
 def test_gh_repo_from_url(url):
     assert gh_repo_from_url(url) == "owner/name-kb"
 
-
 def test_gh_repo_from_url_non_github_is_none():
     assert gh_repo_from_url("git@gitlab.com:o/n.git") is None
-
 
 def test_pr_new_url():
     assert pr_new_url("owner/kb", "review/myrepo/spec-x") == (
         "https://github.com/owner/kb/pull/new/review/myrepo/spec-x"
     )
-
 
 def test_resolve_draft_by_slug(tmp_path):
     repo_dir = tmp_path / "myrepo"
@@ -643,7 +616,6 @@ def test_resolve_draft_by_slug(tmp_path):
     assert t.final_rel == "myrepo/specs/my-slug.md"
     assert t.branch == "review/myrepo/spec-my-slug"
 
-
 def test_resolve_draft_accepts_path(tmp_path):
     repo_dir = tmp_path / "myrepo"
     d = repo_dir / "specs" / "drafts"
@@ -651,7 +623,6 @@ def test_resolve_draft_accepts_path(tmp_path):
     (d / "my-slug.md").write_text("# t\n")
     t = resolve_draft(str(d / "my-slug.md"), tmp_path, "myrepo")
     assert t.slug == "my-slug"
-
 
 def test_resolve_draft_missing_returns_none(tmp_path):
     (tmp_path / "myrepo").mkdir()
@@ -686,7 +657,6 @@ from reins.git import run_git
 
 REVIEW_REF_PREFIX = "review/"
 
-
 @dataclass(frozen=True)
 class ReviewTarget:
     doc_type: DocType
@@ -696,10 +666,8 @@ class ReviewTarget:
     final_rel: str       # kb-repo-relative final path ("myrepo/specs/x.md")
     branch: str          # "review/myrepo/spec-x"
 
-
 def review_branch(repo_scope: str, type_key: str, slug: str) -> str:
     return f"{REVIEW_REF_PREFIX}{repo_scope}/{type_key}-{slug}"
-
 
 def resolve_draft(
     slug_or_path: str, kb_dir: Path, repo_scope: str,
@@ -728,7 +696,6 @@ def resolve_draft(
         branch=review_branch(repo_scope, dt.key, slug),
     )
 
-
 def gh_repo_from_url(url: str) -> str | None:
     """'owner/name' from a github.com remote URL (ssh or https), else None."""
     m = re.match(
@@ -737,14 +704,11 @@ def gh_repo_from_url(url: str) -> str | None:
     )
     return m.group(1) if m else None
 
-
 def kb_remote_url(kb_dir: Path) -> str:
     return run_git("remote", "get-url", "origin", cwd=kb_dir).stdout.strip()
 
-
 def pr_new_url(gh_repo: str, branch: str) -> str:
     return f"https://github.com/{gh_repo}/pull/new/{branch}"
-
 
 def candidate_text(draft_text: str) -> str:
     """The reviewable candidate: draft content with Status set to in-review."""
@@ -761,7 +725,6 @@ def resolve_drafts(
     """All gated-type drafts matching slug/path (0, 1, or ambiguous many)."""
     ...  # same loop as above, appending a ReviewTarget per hit;
          # skip types when type_key is given and differs
-
 
 def resolve_draft(slug_or_path, kb_dir, repo_scope):
     matches = resolve_drafts(slug_or_path, kb_dir, repo_scope)
@@ -790,7 +753,6 @@ git commit -m "feat(review): core target resolution and remote naming"
 ```python
 import subprocess
 
-
 @pytest.fixture
 def kb_pair(tmp_path):
     """(bare_remote, local_kb) — local cloned from bare, one commit on main."""
@@ -808,14 +770,12 @@ def kb_pair(tmp_path):
     subprocess.run(["git", "push", "-q", "origin", "main"], cwd=local, check=True)
     return bare, local
 
-
 def _remote_file(bare, ref, rel):
     r = subprocess.run(
         ["git", "show", f"{ref}:{rel}"], cwd=bare,
         capture_output=True, text=True,
     )
     return r.stdout if r.returncode == 0 else None
-
 
 def test_push_candidate_creates_ref_with_only_final_file(kb_pair):
     bare, local = kb_pair
@@ -826,7 +786,6 @@ def test_push_candidate_creates_ref_with_only_final_file(kb_pair):
     assert cand and "**Status:** in-review" in cand
     # draft untouched on the ref (add-only: rename detection must find no delete)
     assert _remote_file(bare, t.branch, "myrepo/specs/drafts/x.md") is not None
-
 
 def test_push_candidate_updates_existing_ref(kb_pair):
     bare, local = kb_pair
@@ -839,7 +798,6 @@ def test_push_candidate_updates_existing_ref(kb_pair):
     push_candidate(local, t)
     assert "revised" in _remote_file(bare, t.branch, "myrepo/specs/x.md")
 
-
 def test_merged_on_main_detection(kb_pair):
     bare, local = kb_pair
     from reins.review import merged_on_main, push_candidate, resolve_draft
@@ -851,7 +809,6 @@ def test_merged_on_main_detection(kb_pair):
     subprocess.run(["git", "push", "-q", "origin",
                     f"origin/{t.branch}:main"], cwd=local, check=True)
     assert merged_on_main(local, t) is True
-
 
 def test_cleanup_after_merge_flips_stamps_deletes(kb_pair):
     bare, local = kb_pair
@@ -868,7 +825,6 @@ def test_cleanup_after_merge_flips_stamps_deletes(kb_pair):
     assert _remote_file(bare, "main", "myrepo/specs/drafts/x.md") is None
     # idempotent second run is a no-op
     assert cleanup_after_merge(local, t, pr_url="https://x/pull/1") is False
-
 
 def test_divergence_detection(kb_pair):
     bare, local = kb_pair
@@ -888,11 +844,9 @@ def test_divergence_detection(kb_pair):
 def _file_allow(url: str) -> tuple[str, ...]:
     return ("-c", "protocol.file.allow=always") if url.startswith("/") else ()
 
-
 def _temp_clone(url: str):
     """Context manager yielding a temp clone path (gc disabled, user set)."""
     return tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-
 
 def _clone_into(url: str, tmp: str) -> Path:
     path = Path(tmp) / "kb-review"
@@ -904,7 +858,6 @@ def _clone_into(url: str, tmp: str) -> Path:
     run_git("config", "user.email", "reins@review", cwd=path)
     run_git("config", "user.name", "Reins Review", cwd=path)
     return path
-
 
 def push_candidate(kb_dir: Path, target: ReviewTarget) -> None:
     """Create/update the review ref so it differs from main by exactly one
@@ -931,12 +884,10 @@ def push_candidate(kb_dir: Path, target: ReviewTarget) -> None:
         run_git(*_file_allow(url), "push", "-q", "-f", "origin",
                 target.branch, cwd=clone)
 
-
 def delete_review_ref(kb_dir: Path, target: ReviewTarget) -> None:
     url = kb_remote_url(kb_dir)
     run_git(*_file_allow(url), "push", "-q", "origin",
             f":refs/heads/{target.branch}", check=False, cwd=kb_dir)
-
 
 def _remote_show(kb_dir: Path, ref: str, rel: str) -> str | None:
     url = kb_remote_url(kb_dir)
@@ -947,23 +898,19 @@ def _remote_show(kb_dir: Path, ref: str, rel: str) -> str | None:
     show = run_git("show", f"FETCH_HEAD:{rel}", check=False, cwd=kb_dir)
     return show.stdout if show.returncode == 0 else None
 
-
 def candidate_on_ref(kb_dir: Path, target: ReviewTarget) -> str | None:
     return _remote_show(kb_dir, target.branch, target.final_rel)
-
 
 def merged_on_main(kb_dir: Path, target: ReviewTarget) -> bool:
     """Candidate at the final path on origin/main ⇒ the PR merged. Pure git —
     part of the no-gh escape hatch."""
     return _remote_show(kb_dir, "main", target.final_rel) is not None
 
-
 def candidate_matches_draft(kb_dir: Path, target: ReviewTarget) -> bool:
     cand = candidate_on_ref(kb_dir, target)
     if cand is None:
         return False
     return cand == candidate_text(target.draft_path.read_text())
-
 
 def cleanup_after_merge(
     kb_dir: Path, target: ReviewTarget, pr_url: str,
@@ -1031,7 +978,6 @@ import subprocess
 from pathlib import Path
 from unittest.mock import patch
 
-
 def _draft(parent: Path, slug: str = "x") -> Path:
     """Publish a draft into the fixture kb (scope 'testproject')."""
     d = parent / "kb" / "testproject" / "specs" / "drafts"
@@ -1043,7 +989,6 @@ def _draft(parent: Path, slug: str = "x") -> Path:
     subprocess.run(["git", "commit", "-q", "-m", "draft"], cwd=kb, check=True)
     subprocess.run(["git", "push", "-q", "origin", "main"], cwd=kb, check=True)
     return f
-
 
 def _review_ctx(parent: Path):
     """Patch stack: repo location, scope name, and mode gate."""
@@ -1076,7 +1021,6 @@ def test_start_happy_path_prints_pr_url(submodule_repo, monkeypatch, capsys):
     assert "**Status:** in-review" in draft
     assert "**Review-PR:** https://github.com/o/kb/pull/12" in draft
 
-
 def test_start_no_gh_prints_escape_hatch(submodule_repo, monkeypatch, capsys):
     monkeypatch.setattr("reins.github.gh_available", lambda: False)
     monkeypatch.setattr("reins.review.gh_repo_from_url", lambda url: "o/kb")
@@ -1086,19 +1030,16 @@ def test_start_no_gh_prints_escape_hatch(submodule_repo, monkeypatch, capsys):
     assert "https://github.com/o/kb/pull/new/review/testproject/spec-x" in out
     assert "reins review link x" in out  # follow-up instruction
 
-
 def test_start_missing_slug_errors(submodule_repo, capsys):
     from reins.commands.review import cmd_review_start
     assert cmd_review_start("nope", reviewers=[]) == 1
     assert "no draft" in capsys.readouterr().out
-
 
 def test_link_records_pr(submodule_repo, capsys):
     from reins.commands.review import cmd_review_link
     assert cmd_review_link("x", "https://github.com/o/kb/pull/9") == 0
     draft = (submodule_repo / "kb/testproject/specs/drafts/x.md").read_text()
     assert "**Review-PR:** https://github.com/o/kb/pull/9" in draft
-
 
 def test_cancel_stamps_gardening_signal(submodule_repo, monkeypatch, capsys):
     monkeypatch.setattr("reins.github.gh_available", lambda: False)
@@ -1108,7 +1049,6 @@ def test_cancel_stamps_gardening_signal(submodule_repo, monkeypatch, capsys):
     draft = (submodule_repo / "kb/testproject/specs/drafts/x.md").read_text()
     assert "**Status:** draft" in draft
     assert "**Review-cancelled:**" in draft
-
 
 def test_restart_clears_cancellation(submodule_repo, monkeypatch):
     monkeypatch.setattr("reins.github.gh_available", lambda: False)
@@ -1146,7 +1086,6 @@ from reins.review import (
     pr_new_url, push_candidate, resolve_drafts,
 )
 
-
 def _ctx(slug_or_path: str, type_key: str | None = None):
     """(root, kb_dir, target) or None after printing the error."""
     root = repo_root()
@@ -1166,10 +1105,8 @@ def _ctx(slug_or_path: str, type_key: str | None = None):
         return None
     return root, kb_dir, matches[0]
 
-
 def _gh_ready() -> bool:
     return github.gh_available() and github.gh_authenticated()
-
 
 def _stamp_draft(
     root, kb_dir, target: ReviewTarget, message: str,
@@ -1185,7 +1122,6 @@ def _stamp_draft(
             else set_field(text, field, value)
     target.draft_path.write_text(text)
     commit_kb(root, message, kb_dir=kb_dir)
-
 
 def cmd_review_start(
     slug: str, reviewers: list[str], type_key: str | None = None,
@@ -1235,7 +1171,6 @@ def cmd_review_start(
     console.next_step(f"reins review link {target.slug} <pr-url>")
     return 0
 
-
 def cmd_review_push(slug: str, type_key: str | None = None) -> int:
     if not can_publish():
         console.error(f"Review blocked (mode: {get_mode()}).")
@@ -1252,7 +1187,6 @@ def cmd_review_push(slug: str, type_key: str | None = None) -> int:
         print(url)
     return 0
 
-
 def cmd_review_link(slug: str, pr_url: str, type_key: str | None = None) -> int:
     ctx = _ctx(slug, type_key)
     if ctx is None:
@@ -1265,7 +1199,6 @@ def cmd_review_link(slug: str, pr_url: str, type_key: str | None = None) -> int:
     )
     console.success(f"Linked {pr_url}")
     return 0
-
 
 def cmd_review_merge(
     slug: str, type_key: str | None = None, force: bool = False,
@@ -1319,13 +1252,11 @@ def cmd_review_merge(
     run_git_pull_kb(kb_dir)
     return 0
 
-
 def run_git_pull_kb(kb_dir) -> None:
     from reins.git import file_transport_args, run_git
     fta = file_transport_args(cwd=kb_dir)
     run_git(*fta, "pull", "-q", "--no-rebase", "origin", "main",
             check=False, cwd=kb_dir)
-
 
 def cmd_review_cancel(slug: str, type_key: str | None = None) -> int:
     ctx = _ctx(slug, type_key)
@@ -1353,7 +1284,6 @@ def cmd_review_cancel(slug: str, type_key: str | None = None) -> int:
     )
     console.success(f"review cancelled — {target.slug} back to draft")
     return 0
-
 
 def cmd_review_status() -> int:
     root = repo_root()
@@ -1457,7 +1387,6 @@ Runs **inside the kb repo** (Actions checkout), not the parent repo: cwd is the 
 """_review-cleanup runs with cwd = kb repo root (the Actions checkout)."""
 import subprocess
 
-
 def test_cleanup_from_ref_name(kb_pair_cloned_at_merged_state, monkeypatch):
     # fixture: bare remote + local clone where review/myrepo/spec-x was
     # fast-forwarded into main (reuse the Task 7 kb_pair fixture steps)
@@ -1471,7 +1400,6 @@ def test_cleanup_from_ref_name(kb_pair_cloned_at_merged_state, monkeypatch):
         capture_output=True, text=True,
     ).stdout
     assert "**Status:** approved" in final
-
 
 def test_cleanup_rejects_malformed_ref(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
@@ -1504,7 +1432,6 @@ from reins.review import REVIEW_REF_PREFIX, ReviewTarget, cleanup_after_merge, r
 _REF_RE = re.compile(
     rf"^{REVIEW_REF_PREFIX}(?P<scope>[^/]+)/(?P<type>[a-z]+)-(?P<slug>[a-z0-9-]+)$"
 )
-
 
 def cmd_review_cleanup(args: list[str]) -> int:
     if not args:
@@ -1600,13 +1527,11 @@ def test_setup_installs_workflow(submodule_repo, monkeypatch, capsys):
     out = capsys.readouterr().out
     assert "ruleset" in out.lower()  # reported as skipped, not silent
 
-
 def test_setup_idempotent(submodule_repo, monkeypatch):
     monkeypatch.setattr("reins.github.gh_available", lambda: False)
     from reins.commands.review import cmd_review_setup
     cmd_review_setup()
     assert cmd_review_setup() == 0  # unchanged file → success no-op
-
 
 def test_setup_refuses_clobber_without_force(submodule_repo, monkeypatch, capsys):
     monkeypatch.setattr("reins.github.gh_available", lambda: False)
@@ -1651,7 +1576,6 @@ _RULESET = {
         {"actor_id": 4, "actor_type": "RepositoryRole", "bypass_mode": "always"},
     ],
 }
-
 
 def cmd_review_setup(force: bool = False) -> int:
     root = repo_root()
@@ -1726,14 +1650,12 @@ from pathlib import Path
 
 from reins.linter.rules.draft_refs import DraftRefsRule
 
-
 def _kb(tmp_path: Path) -> Path:
     plan_dir = tmp_path / "kb/myrepo/exec-plans/active/feature-x"
     plan_dir.mkdir(parents=True)
     (tmp_path / "kb/myrepo/specs/drafts").mkdir(parents=True)
     (tmp_path / "kb/myrepo/specs").mkdir(exist_ok=True, parents=True)
     return plan_dir
-
 
 def test_warns_on_drafts_path_reference(tmp_path):
     plan_dir = _kb(tmp_path)
@@ -1743,7 +1665,6 @@ def test_warns_on_drafts_path_reference(tmp_path):
     diags = DraftRefsRule().run(tmp_path)
     assert len(diags) == 1 and "drafts" in diags[0]
 
-
 def test_warns_on_in_review_spec_reference(tmp_path):
     plan_dir = _kb(tmp_path)
     spec = tmp_path / "kb/myrepo/specs/hot.md"
@@ -1751,7 +1672,6 @@ def test_warns_on_in_review_spec_reference(tmp_path):
     (plan_dir / "plan.md").write_text("# Plan\n\nBuilds on `kb/myrepo/specs/hot.md`.\n")
     diags = DraftRefsRule().run(tmp_path)
     assert len(diags) == 1 and "in-review" in diags[0]
-
 
 def test_legacy_spec_without_status_ok(tmp_path):
     plan_dir = _kb(tmp_path)
@@ -1781,7 +1701,6 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 _KB_PATH_RE = re.compile(rf"{KB_DIR_NAME}/[\w./-]+\.md")
-
 
 class DraftRefsRule(LintRule):
     def name(self) -> str:

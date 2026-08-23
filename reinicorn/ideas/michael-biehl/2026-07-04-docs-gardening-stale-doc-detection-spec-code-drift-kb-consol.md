@@ -1,8 +1,14 @@
-# Docs gardening (stale-doc detection, spec/code drift, kb consolidation) is the l
+---
+type: idea
+title: Docs gardening (stale-doc detection, spec/code drift, kb consolidation) is the l
+slug: 2026-07-04-docs-gardening-stale-doc-detection-spec-code-drift-kb-consol
+lifecycle: active
+status: new
+created: 2026-07-04
+author: Michael Biehl
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** new
+# Docs gardening (stale-doc detection, spec/code drift, kb consolidation) is the l
 
 ## Description
 

@@ -1,8 +1,14 @@
-# Block harness plan mode via a PreToolUse hook on EnterPlanMode - reinicorn owns 
+---
+type: idea
+title: Block harness plan mode via a PreToolUse hook on EnterPlanMode - reinicorn owns
+slug: block-harness-plan-mode-via-a-pretooluse-hook-on-enterplanmo
+lifecycle: active
+status: new
+created: 2026-07-27
+author: Michael Biehl
+---
 
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** new
+# Block harness plan mode via a PreToolUse hook on EnterPlanMode - reinicorn owns 
 
 ## Description
 

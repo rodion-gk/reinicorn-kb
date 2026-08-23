@@ -1,10 +1,16 @@
-# AGENTS.md Template & Population Skill
+---
+type: spec
+title: AGENTS.md Template & Population Skill
+slug: agents-md-template-and-population
+lifecycle: done
+status: implemented
+created: 2026-03-14
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-03-14
-**Author:** Michael Biehl
-**Status:** implemented
-**Origin:** ai-assisted
-**Human-validated:** false
+# AGENTS.md Template & Population Skill
 
 ## Problem
 

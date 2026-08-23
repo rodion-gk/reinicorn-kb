@@ -1,8 +1,14 @@
-# Task-level model tier requirements - exec plan tasks should specify whether they
+---
+type: idea
+title: Task-level model tier requirements - exec plan tasks should specify whether they
+slug: 2026-02-14-task-level-model-tier-requirements-exec-plan-tasks-should-sp
+lifecycle: active
+status: new
+created: 2026-02-14
+author: Michael Biehl
+---
 
-**Date:** 2026-02-14
-**Author:** Michael Biehl
-**Status:** new
+# Task-level model tier requirements - exec plan tasks should specify whether they
 
 ## Description
 

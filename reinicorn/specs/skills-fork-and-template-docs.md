@@ -1,11 +1,17 @@
-# Design: Skills Fork + Template-Driven Docs
+---
+type: spec
+title: 'Design: Skills Fork + Template-Driven Docs'
+slug: skills-fork-and-template-docs
+lifecycle: done
+status: implemented
+created: 2026-02-23
+author: Michael Biehl + Claude
+origin: ai-assisted
+human_validated: false
+implemented_by: feature-mvp
+---
 
-**Date:** 2026-02-23
-**Status:** implemented
-**Author:** Michael Biehl + Claude
-**Branch:** feature-mvp
-**Origin:** ai-assisted
-**Human-validated:** true (Michael Biehl, 2026-02-23)
+# Design: Skills Fork + Template-Driven Docs
 
 ## Problem
 

@@ -1,10 +1,16 @@
-# Honest init platform prompt
+---
+type: spec
+title: Honest init platform prompt
+slug: honest-init-platform-prompt
+lifecycle: active
+status: approved
+created: 2026-07-20
+author: Rodion Izotov
+origin: ai-assisted
+human_validated: true
+---
 
-**Date:** 2026-07-20
-**Author:** Rodion Izotov
-**Status:** approved
-**Origin:** ai-assisted
-**Human-validated:** true 
+# Honest init platform prompt
 
 ## Problem
 

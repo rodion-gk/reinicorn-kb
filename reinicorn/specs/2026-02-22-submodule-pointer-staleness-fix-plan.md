@@ -1,3 +1,13 @@
+---
+type: spec
+title: Submodule Pointer Staleness Fix — Implementation Plan
+slug: 2026-02-22-submodule-pointer-staleness-fix-plan
+lifecycle: done
+status: implemented
+created: 2026-07-17
+author: Michael Biehl
+---
+
 # Submodule Pointer Staleness Fix — Implementation Plan
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
@@ -7,8 +17,6 @@
 **Architecture:** Every code path that changes the harness HEAD also stages `git add harness` in the parent. History-rewriting operations (rebase) are replaced with merge. Removing `ignore = all` makes drift visible as a safety net.
 
 **Tech Stack:** Python 3, git CLI, pytest
-
-**Status:** implemented
 
 ---
 

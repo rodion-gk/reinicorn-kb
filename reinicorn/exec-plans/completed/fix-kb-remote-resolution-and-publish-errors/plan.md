@@ -1,12 +1,19 @@
-# Execution Plan: fix/kb-remote-resolution-and-publish-errors
+---
+type: plan
+title: 'Execution Plan: fix/kb-remote-resolution-and-publish-errors'
+slug: fix-kb-remote-resolution-and-publish-errors
+lifecycle: done
+status: complete
+created: 2026-07-27
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+branch: fix/kb-remote-resolution-and-publish-errors
+ticket: N/A
+spec: N/A (fixes two ideas; must survive [[remove-the-kb-submodule]])
+---
 
-**Ticket:** N/A
-**Spec:** N/A (fixes two ideas; must survive [[remove-the-kb-submodule]])
-**Author:** Michael Biehl
-**Created:** 2026-07-27
-**Status:** in-progress
-**Origin:** ai-assisted
-**Human-validated:** false
+# Execution Plan: fix/kb-remote-resolution-and-publish-errors
 
 ## Goal
 

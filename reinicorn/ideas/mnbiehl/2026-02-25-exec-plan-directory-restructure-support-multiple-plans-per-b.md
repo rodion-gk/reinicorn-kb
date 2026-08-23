@@ -1,8 +1,14 @@
-# Exec-plan directory restructure: support multiple plans per branch via slugged s
+---
+type: idea
+title: 'Exec-plan directory restructure: support multiple plans per branch via slugged s'
+slug: 2026-02-25-exec-plan-directory-restructure-support-multiple-plans-per-b
+lifecycle: active
+status: new
+created: 2026-02-25
+author: mnbiehl
+---
 
-**Date:** 2026-02-25
-**Author:** mnbiehl
-**Status:** new
+# Exec-plan directory restructure: support multiple plans per branch via slugged s
 
 ## Description
 

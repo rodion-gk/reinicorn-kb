@@ -1,14 +1,19 @@
+---
+type: debt
+title: Small duplication cleanups from quality review
+slug: small-duplication-cleanups-from-quality-review
+lifecycle: active
+status: draft
+created: 2026-07-27
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+category: maintainability
+severity: low
+remediation: planned
+---
+
 # Small duplication cleanups from quality review
-
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
-
-**Severity:** low
-**Domain:** maintainability
-**Remediation:** planned
 
 ## Impact
 
@@ -24,3 +29,4 @@ One or two PRs, behavior-preserving, existing tests green throughout:
 4. **Dead/duplicate code:** delete production-dead `review.resolve_draft` (port its tests to `resolve_drafts`); delete the `kb.branch_dir_name` identity alias for `git.sanitize_branch` (pick one canonical name); delete the unused `name()` method from the linter rule ABC and its four implementations (the `BUILTIN_RULES` key is authoritative); extract `git_author()` into `git.py` replacing the three inline "git config user.name or unknown" copies (`doc_create.py:16`, `plan.py:62`, `idea.py:26`).
 5. **`feedback.py:121-128`** — route the `gh issue create` call through `github.run_gh` (add `gh_issue_create`, `interactive=True`) instead of raw `subprocess.run`, then drop the "can migrate later" hedge from `github.py`'s docstring.
 6. **`commands/review.py:354-383`** — append a recovery next-step to the surfaced push failure in `cmd_review_cancel`/`cmd_review_start` (rerun converges; the message should say so).
+7. **`commands/doc_show.py:159-189`** (added 2026-08-18, from PR #51 review) — `cmd_branch_show`'s retro path repeats `_branch_doc_show`'s frame (repo-dir resolution, branch defaulting, missing-branch error, `_print_doc`, return). Inherited shape from the old `cmd_retro_show`; unify by passing a fallback target resolver and extra glob patterns into `_branch_doc_show` once a second rider type exists (parameterizing for one caller today adds indirection for no drift risk the tests don't already cover).

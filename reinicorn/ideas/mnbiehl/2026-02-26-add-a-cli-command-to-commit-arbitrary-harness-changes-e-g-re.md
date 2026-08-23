@@ -1,8 +1,15 @@
+---
+type: idea
+title: Add a CLI command to commit arbitrary harness changes (e.g. 'reins harness c
+slug: 2026-02-26-add-a-cli-command-to-commit-arbitrary-harness-changes-e-g-re
+lifecycle: done
+status: resolved
+created: 2026-02-26
+author: mnbiehl
+---
+
 # Add a CLI command to commit arbitrary harness changes (e.g. 'reins harness c
 
-**Date:** 2026-02-26
-**Author:** mnbiehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Description

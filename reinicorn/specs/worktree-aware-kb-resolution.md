@@ -1,11 +1,17 @@
-# Worktree-aware kb resolution
+---
+type: spec
+title: Worktree-aware kb resolution
+slug: worktree-aware-kb-resolution
+lifecycle: active
+status: approved
+created: 2026-07-19
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+review_pr: https://github.com/crystldm/reinicorn-kb/pull/1
+---
 
-**Date:** 2026-07-19
-**Author:** Michael Biehl
-**Status:** approved
-**Origin:** ai-assisted
-**Human-validated:** false
-**Review-PR:** https://github.com/crystldm/reinicorn-kb/pull/1
+# Worktree-aware kb resolution
 
 ## Problem
 

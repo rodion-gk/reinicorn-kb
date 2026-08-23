@@ -1,8 +1,14 @@
-# Machine-readable frontmatter + coverage gates (from GSD): requires/provides/affe
+---
+type: idea
+title: 'Machine-readable frontmatter + coverage gates (from GSD): requires/provides/affe'
+slug: 2026-07-04-machine-readable-frontmatter-coverage-gates-from-gsd-require
+lifecycle: active
+status: new
+created: 2026-07-04
+author: Michael Biehl
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** new
+# Machine-readable frontmatter + coverage gates (from GSD): requires/provides/affe
 
 ## Description
 

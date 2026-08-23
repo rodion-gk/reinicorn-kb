@@ -1,10 +1,17 @@
-# Execution Plan: [Branch Name]
+---
+type: plan
+title: 'Execution Plan: [Branch Name]'
+slug: '[Branch Name]'
+lifecycle: active
+status: planning
+created: [date]
+author: '[developer or agent]'
+branch: '[Branch Name]'
+ticket: '[TICKET-ID or N/A]'
+spec: '[kb path to the spec this implements, or N/A]'
+---
 
-**Ticket:** [TICKET-ID or N/A]
-**Spec:** [kb path to the spec this implements, or N/A]
-**Author:** [developer or agent]
-**Created:** [date]
-**Status:** [planning | in-progress | complete | abandoned]
+# Execution Plan: [Branch Name]
 
 ## Goal
 [What this branch is building/fixing]

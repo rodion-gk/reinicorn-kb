@@ -1,8 +1,17 @@
+---
+type: spec
+title: Submodule Pointer Staleness Fix
+slug: submodule-pointer-staleness-fix
+lifecycle: done
+status: implemented
+created: 2026-07-17
+author: Michael Biehl
+---
+
 # Submodule Pointer Staleness Fix
 
 Date: 2026-02-22
 Issue: #7
-**Status:** implemented
 
 ## Problem
 

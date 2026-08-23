@@ -1,8 +1,14 @@
-# Ratchet principle for golden principles (Hashimoto/Osmani, the most-repeated pos
+---
+type: idea
+title: Ratchet principle for golden principles (Hashimoto/Osmani, the most-repeated pos
+slug: 2026-07-04-ratchet-principle-for-golden-principles-hashimoto-osmani-the
+lifecycle: active
+status: new
+created: 2026-07-04
+author: Michael Biehl
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** new
+# Ratchet principle for golden principles (Hashimoto/Osmani, the most-repeated pos
 
 ## Description
 

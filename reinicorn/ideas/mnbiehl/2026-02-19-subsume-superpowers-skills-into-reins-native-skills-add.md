@@ -1,8 +1,15 @@
+---
+type: idea
+title: Subsume superpowers skills into reins native skills. Add guardrail (agent ho
+slug: 2026-02-19-subsume-superpowers-skills-into-reins-native-skills-add
+lifecycle: done
+status: resolved
+created: 2026-02-19
+author: mnbiehl
+---
+
 # Subsume superpowers skills into reins native skills. Add guardrail (agent ho
 
-**Date:** 2026-02-19
-**Author:** mnbiehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Description

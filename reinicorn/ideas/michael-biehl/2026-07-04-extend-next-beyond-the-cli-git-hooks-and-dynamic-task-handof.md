@@ -1,8 +1,14 @@
-# Extend next: beyond the CLI: git hooks and dynamic task handoff. (1) Git hooks (
+---
+type: idea
+title: 'Extend next: beyond the CLI: git hooks and dynamic task handoff. (1) Git hooks ('
+slug: 2026-07-04-extend-next-beyond-the-cli-git-hooks-and-dynamic-task-handof
+lifecycle: active
+status: new
+created: 2026-07-04
+author: Michael Biehl
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** new
+# Extend next: beyond the CLI: git hooks and dynamic task handoff. (1) Git hooks (
 
 ## Description
 

@@ -1,12 +1,19 @@
+---
+type: plan
+title: 'Execution Plan: feature/beta-cleanup'
+slug: feature-beta-cleanup
+lifecycle: done
+status: complete
+created: 2026-07-05
+author: Michael Biehl
+branch: feature/beta-cleanup
+ticket: N/A
+spec: kb/reins/specs/beta-cleanup-focus-repo-on-kb-cli-skills-cut-extraneous-feat.md
+---
+
 # Execution Plan: feature/beta-cleanup
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-
-**Ticket:** N/A
-**Author:** Michael Biehl
-**Created:** 2026-07-05
-**Status:** complete
-**Spec:** `kb/reins/specs/beta-cleanup-focus-repo-on-kb-cli-skills-cut-extraneous-feat.md`
 
 ## Goal
 
@@ -114,13 +121,11 @@ from pathlib import Path
 
 from reins.commands.internal.post_checkout import cmd_post_checkout
 
-
 def test_file_checkout_is_noop(submodule_repo: Path, monkeypatch, capsys):
     """checkout_type '0' (file checkout) → exit 0, no output."""
     monkeypatch.chdir(submodule_repo)
     assert cmd_post_checkout(["a", "b", "0"]) == 0
     assert capsys.readouterr().out == ""
-
 
 def test_disabled_mode_is_noop(submodule_repo: Path, monkeypatch, capsys):
     """Disabled mode → no suggestion printed."""
@@ -128,7 +133,6 @@ def test_disabled_mode_is_noop(submodule_repo: Path, monkeypatch, capsys):
     monkeypatch.chdir(submodule_repo)
     assert cmd_post_checkout(["a", "b", "1"]) == 0
     assert capsys.readouterr().out == ""
-
 
 def test_new_branch_suggests_plan_create(submodule_repo: Path, monkeypatch, capsys):
     """New branch without upstream → suggests 'reins plan create'."""
@@ -142,7 +146,6 @@ def test_new_branch_suggests_plan_create(submodule_repo: Path, monkeypatch, caps
     assert "feature-new-thing" in out
     assert "reins plan create" in out
     assert "/create-exec-plan" not in out
-
 
 def test_ticket_id_detected_in_branch(submodule_repo: Path, monkeypatch, capsys):
     """Branch containing a JIRA-style ticket id → id shown in suggestion."""
@@ -257,7 +260,6 @@ from pathlib import Path
 
 from reins.commands.internal.post_merge import cmd_post_merge
 
-
 def _mk_active_plan(repo: Path, slug: str, branch_dir: str) -> Path:
     active = repo / "kb" / slug / "exec-plans" / "active" / branch_dir
     active.mkdir(parents=True)
@@ -268,12 +270,10 @@ def _mk_active_plan(repo: Path, slug: str, branch_dir: str) -> Path:
     subprocess.run(["git", "commit", "-q", "-m", "plan"], cwd=repo / "kb", check=True)
     return active
 
-
 def test_disabled_mode_is_noop(submodule_repo: Path, monkeypatch):
     (submodule_repo / ".reins-mode").write_text("disabled")
     monkeypatch.chdir(submodule_repo)
     assert cmd_post_merge([]) == 0
-
 
 def test_merged_branch_plan_archived(submodule_repo: Path, monkeypatch):
     """A plan for a branch already merged into HEAD moves to completed/."""
@@ -293,7 +293,6 @@ def test_merged_branch_plan_archived(submodule_repo: Path, monkeypatch):
     assert (
         submodule_repo / "kb" / slug / "exec-plans" / "completed" / "feature-done" / "plan.md"
     ).is_file()
-
 
 def test_unmerged_branch_plan_kept(submodule_repo: Path, monkeypatch):
     """A plan whose branch is NOT merged stays in active/."""
@@ -382,17 +381,14 @@ _EDITOR_HOOK_SCRIPTS = (
     ("block-raw-kb-git.sh", "Bash"),
 )
 
-
 def _claude_entry(script: str, matcher: str) -> dict:
     return {
         "matcher": matcher,
         "hooks": [{"type": "command", "command": f"{_SCRIPT_DEST}/{script}"}],
     }
 
-
 def _cursor_entry(script: str, matcher: str) -> dict:
     return {"command": f"{_SCRIPT_DEST}/{script}", "matcher": matcher}
-
 
 def _copilot_entry(script: str, _matcher: str) -> dict:
     return {"type": "command", "bash": f"{_SCRIPT_DEST}/{script}"}
@@ -751,7 +747,6 @@ from pathlib import Path
 from reins.commands.doc_create import cmd_retro_create
 from reins.commands.plan import cmd_plan_complete
 
-
 def _setup_branch_with_plan(repo: Path, branch: str) -> Path:
     subprocess.run(["git", "checkout", "-q", "-b", branch], cwd=repo, check=True)
     active = repo / "kb" / "unknown" / "exec-plans" / "active" / branch
@@ -760,7 +755,6 @@ def _setup_branch_with_plan(repo: Path, branch: str) -> Path:
         f"# Execution Plan: {branch}\n\n**Status:** complete\n"
     )
     return active
-
 
 def test_retro_create_targets_active_plan_dir(submodule_repo: Path, monkeypatch):
     active = _setup_branch_with_plan(submodule_repo, "feature-r")
@@ -772,7 +766,6 @@ def test_retro_create_targets_active_plan_dir(submodule_repo: Path, monkeypatch)
     for section in ("What Went Well", "What Could Be Improved", "Lessons Learned", "Action Items"):
         assert f"## {section}" in text
 
-
 def test_retro_create_without_plan_uses_completed_dir(submodule_repo: Path, monkeypatch):
     subprocess.run(["git", "checkout", "-q", "-b", "feature-noplan"], cwd=submodule_repo, check=True)
     monkeypatch.chdir(submodule_repo)
@@ -780,7 +773,6 @@ def test_retro_create_without_plan_uses_completed_dir(submodule_repo: Path, monk
     assert (
         submodule_repo / "kb" / "unknown" / "exec-plans" / "completed" / "feature-noplan" / "retro.md"
     ).is_file()
-
 
 def test_plan_complete_warns_on_empty_retro(submodule_repo: Path, monkeypatch, capsys):
     _setup_branch_with_plan(submodule_repo, "feature-empty-retro")
@@ -791,7 +783,6 @@ def test_plan_complete_warns_on_empty_retro(submodule_repo: Path, monkeypatch, c
     out = capsys.readouterr().out
     assert "retro" in out.lower()
     assert "reins retro create" in out
-
 
 def test_plan_complete_quiet_on_filled_retro(submodule_repo: Path, monkeypatch, capsys):
     active = _setup_branch_with_plan(submodule_repo, "feature-good-retro")
@@ -868,7 +859,6 @@ In `src/reins/commands/plan.py`, add after the imports:
 
 ```python
 _EMPTY_RETRO_LINE = re.compile(r"^\s*-\s*(\[ \]\s*)?(_[^_]*_)?\s*$")
-
 
 def _retro_is_empty(text: str) -> bool:
     """True when a retro has no filled-in bullet content."""

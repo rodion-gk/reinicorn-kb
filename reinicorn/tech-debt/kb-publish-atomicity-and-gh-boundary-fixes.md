@@ -1,14 +1,19 @@
+---
+type: debt
+title: kb publish atomicity and gh boundary fixes
+slug: kb-publish-atomicity-and-gh-boundary-fixes
+lifecycle: active
+status: draft
+created: 2026-07-27
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+category: kb-sync, review-lane
+severity: high
+remediation: planned
+---
+
 # kb publish atomicity and gh boundary fixes
-
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
-
-**Severity:** high
-**Domain:** kb-sync, review-lane
-**Remediation:** planned
 
 ## Impact
 

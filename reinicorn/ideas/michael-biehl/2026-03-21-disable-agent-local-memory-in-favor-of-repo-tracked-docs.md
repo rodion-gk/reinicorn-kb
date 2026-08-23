@@ -1,8 +1,14 @@
-# disable agent-local memory in favor of repo-tracked docs
+---
+type: idea
+title: disable agent-local memory in favor of repo-tracked docs
+slug: 2026-03-21-disable-agent-local-memory-in-favor-of-repo-tracked-docs
+lifecycle: active
+status: new
+created: 2026-03-21
+author: Michael Biehl
+---
 
-**Date:** 2026-03-21
-**Author:** Michael Biehl
-**Status:** new
+# disable agent-local memory in favor of repo-tracked docs
 
 ## Description
 

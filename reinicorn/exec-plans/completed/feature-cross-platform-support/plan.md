@@ -1,3 +1,14 @@
+---
+type: plan
+title: Cross-Platform Support Implementation Plan
+slug: feature-cross-platform-support
+lifecycle: dropped
+status: abandoned
+created: 2026-07-17
+author: Michael Biehl
+branch: feature-cross-platform-support
+---
+
 # Cross-Platform Support Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
@@ -16,8 +27,6 @@ Attribution: `LICENSE-THIRD-PARTY.md` at root listing the MIT-licensed upstream 
 - Changing existing `.claude/hooks/session-start.sh` behavior beyond extracting the kb-autoupdate block (the skill-injection job is a *separate* new script, not a replacement).
 
 **Tech Stack:** Python 3.12+ (reins CLI, pytest), bash (hooks), JSON (manifests), Markdown (skill content). Assets bundled for wheel install via `pyproject.toml` `[tool.hatch.build.targets.wheel.force-include]` — `hooks/` is already listed, so new files in there ship automatically.
-
-**Status:** abandoned
 
 ---
 
@@ -114,12 +123,10 @@ from pathlib import Path
 REFS_DIR = Path(__file__).resolve().parents[1] / ".claude" / "skills" / "using-reins" / "references"
 EXPECTED = ["codex-tools.md", "copilot-tools.md", "gemini-tools.md"]
 
-
 def test_all_reference_files_exist():
     for name in EXPECTED:
         path = REFS_DIR / name
         assert path.is_file(), f"{path} missing"
-
 
 def test_no_upstream_branding_in_references():
     for name in EXPECTED:
@@ -308,7 +315,6 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = REPO_ROOT / "hooks" / "session-start-bootstrap"
 
-
 def test_script_exists_and_is_executable():
     assert SCRIPT.is_file(), f"{SCRIPT} missing"
     assert os.access(SCRIPT, os.X_OK), f"{SCRIPT} not executable"
@@ -459,7 +465,6 @@ def test_copilot_shape():
     assert "hookSpecificOutput" not in parsed
     assert "additional_context" not in parsed
 
-
 def test_default_shape_when_no_env_set():
     env = {k: v for k, v in os.environ.items()
            if k not in ("CURSOR_PLUGIN_ROOT", "CLAUDE_PLUGIN_ROOT", "COPILOT_CLI")}
@@ -548,14 +553,12 @@ from pathlib import Path
 
 from reins.commands.hooks_install import cmd_hooks_install
 
-
 def _init_repo(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
     subprocess.run(["git", "init", "-q"], cwd=path, check=True)
     subprocess.run(["git", "config", "user.email", "t@t"], cwd=path, check=True)
     subprocess.run(["git", "config", "user.name", "t"], cwd=path, check=True)
     subprocess.run(["git", "commit", "--allow-empty", "-m", "init"], cwd=path, check=True)
-
 
 def test_claude_settings_gets_session_start(tmp_path: Path, monkeypatch):
     repo = tmp_path / "r"
@@ -747,12 +750,10 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
-
 def _load(rel: str) -> dict:
     p = REPO_ROOT / rel
     assert p.is_file(), f"{rel} missing"
     return json.loads(p.read_text())
-
 
 def test_claude_plugin_manifest():
     m = _load(".claude-plugin/plugin.json")
@@ -760,28 +761,23 @@ def test_claude_plugin_manifest():
     assert m["license"] == "MIT"
     assert "version" in m
 
-
 def test_claude_marketplace_manifest():
     m = _load(".claude-plugin/marketplace.json")
     assert m["name"] == "reins-dev"
     assert m["plugins"][0]["name"] == "reins"
-
 
 def test_cursor_plugin_manifest():
     m = _load(".cursor-plugin/plugin.json")
     assert m["name"] == "reins"
     assert m["skills"].endswith("/skills/") or m["skills"].endswith("/skills")
 
-
 def test_gemini_extension_manifest():
     m = _load("gemini-extension.json")
     assert m["name"] == "reins"
     assert m["contextFileName"] == "GEMINI.md"
 
-
 def test_codex_install_docs_exist():
     assert (REPO_ROOT / ".codex" / "INSTALL.md").is_file()
-
 
 def test_gemini_context_file_exists():
     assert (REPO_ROOT / "GEMINI.md").is_file()

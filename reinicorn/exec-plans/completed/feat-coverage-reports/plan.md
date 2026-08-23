@@ -1,9 +1,16 @@
-# Execution Plan: feat/coverage-reports
+---
+type: plan
+title: 'Execution Plan: feat/coverage-reports'
+slug: feat-coverage-reports
+lifecycle: done
+status: complete
+created: 2026-07-24
+author: Michael Biehl
+branch: feat/coverage-reports
+ticket: N/A
+---
 
-**Ticket:** N/A
-**Author:** Michael Biehl
-**Created:** 2026-07-24
-**Status:** complete
+# Execution Plan: feat/coverage-reports
 
 ## Goal
 Measure test coverage of `src/reinicorn` on every local and CI test run,

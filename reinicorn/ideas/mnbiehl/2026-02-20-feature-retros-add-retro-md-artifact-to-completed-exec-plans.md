@@ -1,8 +1,15 @@
+---
+type: idea
+title: 'Feature Retros: Add retro.md artifact to completed exec-plans'
+slug: 2026-02-20-feature-retros-add-retro-md-artifact-to-completed-exec-plans
+lifecycle: done
+status: resolved
+created: 2026-02-20
+author: mnbiehl
+---
+
 # Feature Retros: Add retro.md artifact to completed exec-plans
 
-**Date:** 2026-02-20
-**Author:** mnbiehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Resolution

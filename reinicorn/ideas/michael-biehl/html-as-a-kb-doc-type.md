@@ -1,10 +1,16 @@
-# HTML as a kb Doc Type
+---
+type: idea
+title: HTML as a kb Doc Type
+slug: html-as-a-kb-doc-type
+lifecycle: active
+status: new
+created: 2026-07-27
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** new
-**Origin:** ai-assisted
-**Human-validated:** false
+# HTML as a kb Doc Type
 
 ## Summary
 

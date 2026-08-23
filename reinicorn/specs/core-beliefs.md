@@ -1,8 +1,14 @@
-# Core Beliefs: Agent-First Operating Principles
+---
+type: spec
+title: 'Core Beliefs: Agent-First Operating Principles'
+slug: core-beliefs
+lifecycle: active
+status: approved
+created: 2026-02-13
+author: Michael + Claude
+---
 
-**Status:** approved
-**Date:** 2026-02-13
-**Author:** Michael + Claude
+# Core Beliefs: Agent-First Operating Principles
 
 > **This is a living document.** These principles are a starting point drawn from the OpenAI harness engineering article and the reins design. Teams should keep what resonates, modify what doesn't fit their context, and add beliefs that reflect their own hard-won lessons. The goal is a shared foundation your agents and humans can align on — not a rigid doctrine.
 

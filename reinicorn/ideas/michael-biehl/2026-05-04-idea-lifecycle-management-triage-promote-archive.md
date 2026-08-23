@@ -1,8 +1,14 @@
-# Idea lifecycle management — triage, promote, archive
+---
+type: idea
+title: Idea lifecycle management — triage, promote, archive
+slug: 2026-05-04-idea-lifecycle-management-triage-promote-archive
+lifecycle: active
+status: open
+created: 2026-05-04
+author: Michael Biehl
+---
 
-**Date:** 2026-05-04
-**Author:** Michael Biehl
-**Status:** open
+# Idea lifecycle management — triage, promote, archive
 
 ## Description
 

@@ -1,8 +1,15 @@
+---
+type: idea
+title: Centralize gh CLI usage into a shared reins.github module with standard invo
+slug: 2026-02-20-centralize-gh-cli-usage-into-a-shared-reins-github-modul
+lifecycle: done
+status: resolved
+created: 2026-02-20
+author: mnbiehl
+---
+
 # Centralize gh CLI usage into a shared reins.github module with standard invo
 
-**Date:** 2026-02-20
-**Author:** mnbiehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Description

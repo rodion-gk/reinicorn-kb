@@ -1,7 +1,15 @@
+---
+type: spec
+title: 'Design: Reins Init Rework'
+slug: reins-init-rework
+lifecycle: done
+status: implemented
+created: 2026-02-21
+author: Michael Biehl
+---
+
 # Design: Reins Init Rework
 
-**Date:** 2026-02-21
-**Status:** implemented
 **Predecessor:** mvp-unified-attach.md
 **Trigger:** QA findings from MVP Unified Attach (PR #4)
 

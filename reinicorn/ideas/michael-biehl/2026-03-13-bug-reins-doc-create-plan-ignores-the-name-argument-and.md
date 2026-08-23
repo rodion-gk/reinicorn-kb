@@ -1,8 +1,15 @@
+---
+type: idea
+title: 'Bug: ''reins plan create'' ignores the name argument and always writes to'
+slug: 2026-03-13-bug-reins-doc-create-plan-ignores-the-name-argument-and
+lifecycle: done
+status: resolved
+created: 2026-03-13
+author: Michael Biehl
+---
+
 # Bug: 'reins plan create' ignores the name argument and always writes to 
 
-**Date:** 2026-03-13
-**Author:** Michael Biehl
-**Status:** resolved
 **Resolved:** 2026-07-24
 
 ## Description

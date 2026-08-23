@@ -1,8 +1,14 @@
-# Configurable kb git strategy — let users choose how reins runs git against the k
+---
+type: idea
+title: Configurable kb git strategy — let users choose how reins runs git against the k
+slug: 2026-06-09-configurable-kb-git-strategy-let-users-choose-how-reins-runs
+lifecycle: active
+status: new
+created: 2026-06-09
+author: Michael Biehl
+---
 
-**Date:** 2026-06-09
-**Author:** Michael Biehl
-**Status:** new
+# Configurable kb git strategy — let users choose how reins runs git against the k
 
 ## Description
 

@@ -1,8 +1,14 @@
-# Conversation History: Capture, Trim, and Retrieval Pipeline
+---
+type: idea
+title: 'Conversation History: Capture, Trim, and Retrieval Pipeline'
+slug: 2026-02-20-conversation-history-capture-trim-and-retrieval-pipeline
+lifecycle: active
+status: new
+created: 2026-02-20
+author: mnbiehl
+---
 
-**Date:** 2026-02-20
-**Author:** mnbiehl
-**Status:** new
+# Conversation History: Capture, Trim, and Retrieval Pipeline
 
 ## Description
 

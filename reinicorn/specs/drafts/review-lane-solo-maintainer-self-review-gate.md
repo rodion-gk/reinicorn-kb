@@ -1,10 +1,16 @@
-# review lane: solo-maintainer self-review gate
+---
+type: spec
+title: 'review lane: solo-maintainer self-review gate'
+slug: review-lane-solo-maintainer-self-review-gate
+lifecycle: active
+status: draft
+created: 2026-07-24
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-07-24
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
+# review lane: solo-maintainer self-review gate
 
 Closes #2.
 

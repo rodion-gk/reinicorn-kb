@@ -1,8 +1,14 @@
-# block-dangerous-commands standalone Go guard tool (tools/ deleted for beta; see 
+---
+type: idea
+title: block-dangerous-commands standalone Go guard tool (tools/ deleted for beta; see
+slug: 2026-07-05-block-dangerous-commands-standalone-go-guard-tool-tools-dele
+lifecycle: active
+status: new
+created: 2026-07-05
+author: Michael Biehl
+---
 
-**Date:** 2026-07-05
-**Author:** Michael Biehl
-**Status:** new
+# block-dangerous-commands standalone Go guard tool (tools/ deleted for beta; see 
 
 ## Description
 

@@ -1,8 +1,14 @@
-# Create an agent skill for testing interactive TTY commands. Agents currently run
+---
+type: idea
+title: Create an agent skill for testing interactive TTY commands. Agents currently run
+slug: 2026-02-20-create-an-agent-skill-for-testing-interactive-tty-commands-a
+lifecycle: active
+status: new
+created: 2026-02-20
+author: mnbiehl
+---
 
-**Date:** 2026-02-20
-**Author:** mnbiehl
-**Status:** new
+# Create an agent skill for testing interactive TTY commands. Agents currently run
 
 ## Description
 

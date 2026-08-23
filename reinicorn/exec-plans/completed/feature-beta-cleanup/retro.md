@@ -1,10 +1,17 @@
-# Retro: feature/beta-cleanup
+---
+type: retro
+title: 'Retro: feature/beta-cleanup'
+slug: feature-beta-cleanup
+lifecycle: active
+status: draft
+created: 2026-07-06
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+branch: feature-beta-cleanup
+---
 
-**Date:** 2026-07-06
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
+# Retro: feature/beta-cleanup
 
 ## What Went Well
 

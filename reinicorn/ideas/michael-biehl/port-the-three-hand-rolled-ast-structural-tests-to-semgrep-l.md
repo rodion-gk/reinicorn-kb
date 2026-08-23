@@ -1,8 +1,14 @@
-# Port the three hand-rolled AST structural tests to semgrep; linters/structural-t
+---
+type: idea
+title: Port the three hand-rolled AST structural tests to semgrep; linters/structural-t
+slug: port-the-three-hand-rolled-ast-structural-tests-to-semgrep-l
+lifecycle: active
+status: new
+created: 2026-07-27
+author: Michael Biehl
+---
 
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** new
+# Port the three hand-rolled AST structural tests to semgrep; linters/structural-t
 
 ## Description
 
@@ -55,3 +61,22 @@ Semgrep is a new dependency and a second rule language for three rules in a
 small codebase. Weigh that against three bespoke AST walkers that each need
 maintaining. A flake8 plugin keeps the toolchain Python-only but is more work
 to write. Decide before a fourth walker appears.
+
+### Added 2026-08-16: golden principle 15 joins the rule backlog
+
+"No stringly-typed code" (golden principle 15) can only be enforced
+generally by this work — pyright's `reportUnnecessaryComparison` covers
+enum-vs-string-literal comparisons and nothing else; the full smell
+(modes/kinds/states passed as bare strings, data encoded in delimited
+strings) needs semantic rules. When the opengrep port lands, add rules for
+principle 15 alongside the three ported walkers.
+
+### Decided 2026-08-14: opengrep, not semgrep
+
+The port happens via the golden-principle-enforcement spec (in review, kb#13),
+and the engine is opengrep — the LF-backed LGPL-2.1 fork of Semgrep CE. Same
+rule YAML, no telemetry, no commercial tier; all three rules are plain
+syntactic matching, so nothing depends on semgrep-only features. One
+integration difference: opengrep is not on PyPI, so CI pins a checksum-verified
+release binary instead of a pip dev dependency (docker-wrapped binary as
+fallback if installs prove problematic).

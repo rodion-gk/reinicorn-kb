@@ -1,8 +1,14 @@
-# Delta specs + archive-merge lifecycle (from OpenSpec): express each change as AD
+---
+type: idea
+title: 'Delta specs + archive-merge lifecycle (from OpenSpec): express each change as AD'
+slug: 2026-07-04-delta-specs-archive-merge-lifecycle-from-openspec-express-ea
+lifecycle: active
+status: new
+created: 2026-07-04
+author: Michael Biehl
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** new
+# Delta specs + archive-merge lifecycle (from OpenSpec): express each change as AD
 
 ## Description
 

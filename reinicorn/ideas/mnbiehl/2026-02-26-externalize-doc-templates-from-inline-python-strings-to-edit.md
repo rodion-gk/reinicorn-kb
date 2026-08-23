@@ -1,8 +1,14 @@
-# Externalize doc templates from inline Python strings to editable files in the ha
+---
+type: idea
+title: Externalize doc templates from inline Python strings to editable files in the ha
+slug: 2026-02-26-externalize-doc-templates-from-inline-python-strings-to-edit
+lifecycle: active
+status: new
+created: 2026-02-26
+author: mnbiehl
+---
 
-**Date:** 2026-02-26
-**Author:** mnbiehl
-**Status:** new
+# Externalize doc templates from inline Python strings to editable files in the ha
 
 ## Description
 

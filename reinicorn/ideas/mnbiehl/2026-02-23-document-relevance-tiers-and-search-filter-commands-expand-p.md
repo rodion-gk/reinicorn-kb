@@ -1,8 +1,14 @@
-# Document relevance tiers and search/filter commands
+---
+type: idea
+title: Document relevance tiers and search/filter commands
+slug: 2026-02-23-document-relevance-tiers-and-search-filter-commands-expand-p
+lifecycle: active
+status: new
+created: 2026-02-23
+author: mnbiehl
+---
 
-**Date:** 2026-02-23
-**Author:** mnbiehl
-**Status:** new
+# Document relevance tiers and search/filter commands
 
 ## Problem
 

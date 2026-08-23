@@ -1,8 +1,15 @@
+---
+type: idea
+title: PreToolUse hook to block direct git submodule commands from agents. Agents must
+slug: 2026-03-06-pretooluse-hook-to-block-direct-git-submodule-commands-from
+lifecycle: done
+status: resolved
+created: 2026-03-06
+author: mnbiehl
+---
+
 # PreToolUse hook to block direct git submodule commands from agents. Agents must 
 
-**Date:** 2026-03-06
-**Author:** mnbiehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Description

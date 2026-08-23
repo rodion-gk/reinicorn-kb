@@ -1,6 +1,16 @@
+---
+type: plan
+title: 'QA Runbook: MVP Unified Attach'
+slug: qa-runbook
+lifecycle: done
+status: done
+created: 2026-02-20
+author: Michael Biehl
+branch: mvp-unified-attach
+---
+
 # QA Runbook: MVP Unified Attach
 
-**Date:** 2026-02-20
 **PR:** #4 (`feature/mvp-unified-attach`)
 **Tester:** _______________
 

@@ -1,10 +1,16 @@
-# repo-metadata
+---
+type: spec
+title: repo-metadata
+slug: repo-metadata
+lifecycle: active
+status: draft
+created: 2026-03-21
+author: Claude
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-03-21
-**Author:** Claude
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
+# repo-metadata
 
 ## Problem
 

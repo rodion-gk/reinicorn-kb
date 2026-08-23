@@ -1,8 +1,15 @@
+---
+type: idea
+title: 'reins kb publish: improve conflict handling and diagnostics'
+slug: 2026-02-20-reins-publish-improve-conflict-handling-and-diagnostics
+lifecycle: done
+status: resolved
+created: 2026-02-20
+author: mnbiehl
+---
+
 # reins kb publish: improve conflict handling and diagnostics
 
-**Date:** 2026-02-20
-**Author:** mnbiehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Resolution

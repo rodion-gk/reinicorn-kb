@@ -1,10 +1,16 @@
-# update-superpowers-skill
+---
+type: spec
+title: update-superpowers-skill
+slug: update-superpowers-skill
+lifecycle: done
+status: implemented
+created: 2026-03-26
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-03-26
-**Author:** Michael Biehl
-**Status:** implemented
-**Origin:** ai-assisted
-**Human-validated:** false
+# update-superpowers-skill
 
 ## Problem
 

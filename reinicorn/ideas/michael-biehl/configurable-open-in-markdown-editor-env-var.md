@@ -1,8 +1,14 @@
-# Configurable "open in Markdown editor" env var
+---
+type: idea
+title: Configurable "open in Markdown editor" env var
+slug: configurable-open-in-markdown-editor-env-var
+lifecycle: active
+status: new
+created: 2026-07-27
+author: Michael Biehl
+---
 
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** new
+# Configurable "open in Markdown editor" env var
 
 ## Description
 

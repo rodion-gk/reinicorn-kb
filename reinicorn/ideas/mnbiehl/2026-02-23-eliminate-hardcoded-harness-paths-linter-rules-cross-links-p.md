@@ -1,8 +1,15 @@
+---
+type: idea
+title: 'eliminate-hardcoded-harness-paths: linter rules (cross_links, plan_structure, do'
+slug: 2026-02-23-eliminate-hardcoded-harness-paths-linter-rules-cross-links-p
+lifecycle: done
+status: resolved
+created: 2026-02-23
+author: mnbiehl
+---
+
 # eliminate-hardcoded-harness-paths: linter rules (cross_links, plan_structure, do
 
-**Date:** 2026-02-23
-**Author:** mnbiehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Description

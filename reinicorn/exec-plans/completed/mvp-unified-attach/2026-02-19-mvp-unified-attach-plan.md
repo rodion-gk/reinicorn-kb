@@ -1,3 +1,14 @@
+---
+type: plan
+title: MVP Unified Attach — Implementation Plan
+slug: 2026-02-19-mvp-unified-attach-plan
+lifecycle: done
+status: done
+created: 2026-07-17
+author: Michael Biehl
+branch: mvp-unified-attach
+---
+
 # MVP Unified Attach — Implementation Plan
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
@@ -88,7 +99,6 @@ from unittest.mock import patch, call
 
 from reins.commands.attach import cmd_attach
 
-
 def test_attach_rejects_non_git_dir(tmp_path: Path, capsys):
     """attach should fail if not in a git repo."""
     with patch("reins.commands.attach.run_git") as mock_git:
@@ -96,7 +106,6 @@ def test_attach_rejects_non_git_dir(tmp_path: Path, capsys):
         with patch("reins.commands.attach.reins_root", return_value=tmp_path):
             result = cmd_attach()
     assert result == 1
-
 
 def test_attach_does_not_offer_inline_mode(harness_repo: Path, monkeypatch, capsys):
     """attach should not prompt for inline vs submodule — submodule only."""
@@ -408,12 +417,10 @@ from unittest.mock import patch, MagicMock
 
 from reins.commands.feedback import cmd_feedback, _build_issue_body
 
-
 def test_build_issue_body_includes_version():
     body = _build_issue_body("Something is broken")
     assert "reins" in body.lower()
     assert "0.1.0" in body or "version" in body.lower()
-
 
 def test_feedback_inline_text():
     """feedback with inline text should not prompt for description."""
@@ -424,7 +431,6 @@ def test_feedback_inline_text():
     mock_open.assert_called_once()
     title = mock_open.call_args[0][0]
     assert "hooks" in title.lower()
-
 
 def test_feedback_no_text_prompts(monkeypatch):
     """feedback with no text should prompt interactively."""
@@ -464,7 +470,6 @@ from reins.mode import get_mode
 
 REPO_URL = "https://github.com/mbiehl/reins"
 
-
 def cmd_feedback(text: str | None = None) -> int:
     if text is None:
         print()
@@ -478,7 +483,6 @@ def cmd_feedback(text: str | None = None) -> int:
     title = text[:80]
     body = _build_issue_body(text)
     return _open_issue(title, body)
-
 
 def _build_issue_body(description: str) -> str:
     mode = get_mode()
@@ -496,7 +500,6 @@ def _build_issue_body(description: str) -> str:
         f"- Mode: {mode}",
     ]
     return "\n".join(lines)
-
 
 def _open_issue(title: str, body: str) -> int:
     if shutil.which("gh"):

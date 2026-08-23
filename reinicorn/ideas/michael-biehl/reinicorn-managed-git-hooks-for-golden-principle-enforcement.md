@@ -1,8 +1,14 @@
-# Reinicorn-managed git hooks for golden-principle enforcement
+---
+type: idea
+title: Reinicorn-managed git hooks for golden-principle enforcement
+slug: reinicorn-managed-git-hooks-for-golden-principle-enforcement
+lifecycle: active
+status: new
+created: 2026-07-22
+author: Michael Biehl
+---
 
-**Date:** 2026-07-22
-**Author:** Michael Biehl
-**Status:** new
+# Reinicorn-managed git hooks for golden-principle enforcement
 
 ## Description
 

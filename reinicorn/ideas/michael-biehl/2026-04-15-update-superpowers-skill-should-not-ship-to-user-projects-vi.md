@@ -1,8 +1,14 @@
-# update-superpowers skill should not ship to user projects via reins update — it'
+---
+type: idea
+title: update-superpowers skill should not ship to user projects via reins update — it'
+slug: 2026-04-15-update-superpowers-skill-should-not-ship-to-user-projects-vi
+lifecycle: active
+status: new
+created: 2026-04-15
+author: Michael Biehl
+---
 
-**Date:** 2026-04-15
-**Author:** Michael Biehl
-**Status:** new
+# update-superpowers skill should not ship to user projects via reins update — it'
 
 ## Description
 

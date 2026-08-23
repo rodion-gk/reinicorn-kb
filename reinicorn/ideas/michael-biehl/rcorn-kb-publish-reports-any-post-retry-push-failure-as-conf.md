@@ -1,8 +1,14 @@
-# rcorn kb publish reports any post-retry push failure as conflicting changes, mas
+---
+type: idea
+title: rcorn kb publish reports any post-retry push failure as conflicting changes, mas
+slug: rcorn-kb-publish-reports-any-post-retry-push-failure-as-conf
+lifecycle: active
+status: new
+created: 2026-07-27
+author: Michael Biehl
+---
 
-**Date:** 2026-07-27
-**Author:** Michael Biehl
-**Status:** new
+# rcorn kb publish reports any post-retry push failure as conflicting changes, mas
 
 ## Description
 

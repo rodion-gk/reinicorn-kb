@@ -1,18 +1,25 @@
+---
+type: plan
+title: Reinicorn Identity and Asset Ownership Implementation Plan
+slug: feature-reinicorn-identity-and-assets
+lifecycle: done
+status: complete
+created: 2026-07-17
+author: Michael Biehl
+origin: ai-assisted
+branch: feature-reinicorn-identity-and-assets
+spec: kb/reinicorn/specs/reinicorn-public-release-program-and-identity-migration.md
+---
+
 # Reinicorn Identity and Asset Ownership Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
-
-**Author:** Michael Biehl
-**Status:** complete
-**Origin:** ai-assisted
 
 **Goal:** Complete public-release Gate 1 by replacing the Reins runtime identity with Reinicorn, exposing only the `rcorn` CLI, separating source and downstream AGENTS ownership, and moving KB navigation into a scope README.
 
 **Architecture:** Rename the Python namespace first, then centralize runtime identity in `reinicorn.identity`. Keep project instructions user-owned by rendering a dedicated template once, while package-managed skills, hooks, linters, workflows, and platform instructions remain manifest-managed. Persist an explicit KB scope override so the private archive remote can remain named `reins` while the working KB scope becomes `reinicorn`.
 
 **Tech Stack:** Python 3.12+, stdlib `argparse`, hatchling/hatch-vcs, uv, pytest, Ruff, Pyright, Git submodules, shell hooks, GitHub Actions.
-
-**Spec:** `kb/reins/specs/reinicorn-public-release-program-and-identity-migration.md` before Task 7; `kb/reinicorn/specs/reinicorn-public-release-program-and-identity-migration.md` after the KB scope cutover.
 
 ## Goal
 
@@ -89,14 +96,12 @@ from reinicorn.identity import (
     STATE_DIR_NAME,
 )
 
-
 def test_public_identity_contract() -> None:
     assert PRODUCT_NAME == "Reinicorn"
     assert CLI_NAME == "rcorn"
     assert STATE_DIR_NAME == ".reinicorn"
     assert CONFIG_FILE_NAME == ".reinicorn-config"
     assert ENV_PREFIX == "REINICORN_"
-
 
 def test_pyproject_exposes_only_rcorn() -> None:
     data = tomllib.loads(Path("pyproject.toml").read_text())
@@ -286,7 +291,6 @@ def kb_scope(root: Path | None = None) -> str:
         return configured
     from reinicorn.git import repo_slug
     return repo_slug()
-
 
 def config_set(key: str, value: str, root: Path) -> None:
     """Set one KEY=value entry while preserving unrelated config lines."""
@@ -607,7 +611,6 @@ def test_seed_creates_scope_readme_map(tmp_path: Path) -> None:
     assert "rcorn kb sync" in text
     assert "rcorn kb publish" in text
 
-
 def test_seed_preserves_existing_scope_readme(tmp_path: Path) -> None:
     scope = tmp_path / "my-project"
     scope.mkdir()
@@ -692,16 +695,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parent.parent
-
 
 def test_source_agents_is_populated_and_points_to_reinicorn_scope() -> None:
     text = (ROOT / "AGENTS.md").read_text()
     assert "<!-- UNPOPULATED" not in text
     assert "kb/reinicorn/README.md" in text
     assert "uv run rcorn" in text
-
 
 def test_source_config_pins_reinicorn_scope() -> None:
     text = (ROOT / ".reinicorn-config").read_text()
@@ -877,7 +877,6 @@ PUBLIC_PATHS = (
     Path("GETTING-STARTED.md"),
     Path("pyproject.toml"),
 )
-
 
 def test_release_inputs_contain_no_legacy_identity() -> None:
     offenders: list[str] = []

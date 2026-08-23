@@ -1,8 +1,14 @@
-# Context-percentage as the spec/plan sizing unit (from GSD): one plan = one conte
+---
+type: idea
+title: 'Context-percentage as the spec/plan sizing unit (from GSD): one plan = one conte'
+slug: 2026-07-04-context-percentage-as-the-spec-plan-sizing-unit-from-gsd-one
+lifecycle: active
+status: new
+created: 2026-07-04
+author: Michael Biehl
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** new
+# Context-percentage as the spec/plan sizing unit (from GSD): one plan = one conte
 
 ## Description
 

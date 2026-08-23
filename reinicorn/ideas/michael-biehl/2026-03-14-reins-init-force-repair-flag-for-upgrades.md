@@ -1,8 +1,14 @@
-# reins init --force/--repair flag for upgrades
+---
+type: idea
+title: reins init --force/--repair flag for upgrades
+slug: 2026-03-14-reins-init-force-repair-flag-for-upgrades
+lifecycle: active
+status: new
+created: 2026-03-14
+author: Michael Biehl
+---
 
-**Date:** 2026-03-14
-**Author:** Michael Biehl
-**Status:** new
+# reins init --force/--repair flag for upgrades
 
 ## Description
 

@@ -1,8 +1,14 @@
-# argparse usage errors (exit 2) print to stderr, deviating from the axi all-agent
+---
+type: idea
+title: argparse usage errors (exit 2) print to stderr, deviating from the axi all-agent
+slug: 2026-07-03-argparse-usage-errors-exit-2-print-to-stderr-deviating-from
+lifecycle: active
+status: new
+created: 2026-07-03
+author: Michael Biehl
+---
 
-**Date:** 2026-07-03
-**Author:** Michael Biehl
-**Status:** new
+# argparse usage errors (exit 2) print to stderr, deviating from the axi all-agent
 
 ## Description
 

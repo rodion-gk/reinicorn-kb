@@ -1,10 +1,16 @@
-# Harness engineering quick wins: principle provenance, surprises log, feedback triage
+---
+type: spec
+title: 'Harness engineering quick wins: principle provenance, surprises log, feedback triage'
+slug: harness-engineering-quick-wins-principle-provenance-surprise
+lifecycle: active
+status: draft
+created: 2026-07-04
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
+# Harness engineering quick wins: principle provenance, surprises log, feedback triage
 
 ## Problem
 

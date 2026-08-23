@@ -1,14 +1,19 @@
+---
+type: debt
+title: kb path literals duplicated outside the doc-type registry
+slug: kb-path-literals-duplicated-outside-the-doc-type-registry
+lifecycle: active
+status: draft
+created: 2026-07-09
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+category: cli
+severity: low
+remediation: planned
+---
+
 # kb path literals duplicated outside the doc-type registry
-
-**Date:** 2026-07-09
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
-
-**Severity:** low
-**Domain:** cli
-**Remediation:** planned
 
 ## Impact
 

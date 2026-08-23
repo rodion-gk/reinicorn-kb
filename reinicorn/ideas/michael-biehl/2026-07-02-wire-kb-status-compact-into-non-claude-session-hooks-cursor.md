@@ -1,8 +1,14 @@
-# wire kb status --compact into non-Claude session hooks (cursor, copilot, gemini)
+---
+type: idea
+title: wire kb status --compact into non-Claude session hooks (cursor, copilot, gemini)
+slug: 2026-07-02-wire-kb-status-compact-into-non-claude-session-hooks-cursor
+lifecycle: active
+status: new
+created: 2026-07-02
+author: Michael Biehl
+---
 
-**Date:** 2026-07-02
-**Author:** Michael Biehl
-**Status:** new
+# wire kb status --compact into non-Claude session hooks (cursor, copilot, gemini)
 
 ## Description
 

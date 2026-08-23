@@ -1,8 +1,14 @@
-# Fold pr-respond into the reins toolkit as a first-class PR review workflow. 
+---
+type: idea
+title: Fold pr-respond into the reins toolkit as a first-class PR review workflow.
+slug: 2026-02-18-fold-pr-respond-into-the-reins-toolkit-as-a-first-class
+lifecycle: active
+status: new
+created: 2026-02-18
+author: mnbiehl
+---
 
-**Date:** 2026-02-18
-**Author:** mnbiehl
-**Status:** new
+# Fold pr-respond into the reins toolkit as a first-class PR review workflow. 
 
 ## Description
 

@@ -1,10 +1,16 @@
-# Doc review lane: PR-style review for gated kb docs
+---
+type: spec
+title: 'Doc review lane: PR-style review for gated kb docs'
+slug: doc-review-lane-pr-style-review-for-gated-kb-docs
+lifecycle: active
+status: draft
+created: 2026-07-06
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+---
 
-**Date:** 2026-07-06
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
+# Doc review lane: PR-style review for gated kb docs
 
 ## Problem
 

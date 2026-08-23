@@ -1,14 +1,19 @@
+---
+type: debt
+title: shared plumbing reimplemented inline across command modules
+slug: shared-plumbing-reimplemented-inline-across-command-modules
+lifecycle: active
+status: draft
+created: 2026-07-09
+author: Michael Biehl
+origin: ai-assisted
+human_validated: false
+category: cli
+severity: medium
+remediation: planned
+---
+
 # shared plumbing reimplemented inline across command modules
-
-**Date:** 2026-07-09
-**Author:** Michael Biehl
-**Status:** draft
-**Origin:** ai-assisted
-**Human-validated:** false
-
-**Severity:** medium
-**Domain:** cli
-**Remediation:** planned
 
 ## Impact
 

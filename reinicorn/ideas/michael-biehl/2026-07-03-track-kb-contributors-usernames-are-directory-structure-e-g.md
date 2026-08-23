@@ -1,8 +1,14 @@
-# Track kb contributors: usernames are directory structure (e.g. ideas/{username}/
+---
+type: idea
+title: 'Track kb contributors: usernames are directory structure (e.g. ideas/{username}/'
+slug: 2026-07-03-track-kb-contributors-usernames-are-directory-structure-e-g
+lifecycle: active
+status: new
+created: 2026-07-03
+author: Michael Biehl
+---
 
-**Date:** 2026-07-03
-**Author:** Michael Biehl
-**Status:** new
+# Track kb contributors: usernames are directory structure (e.g. ideas/{username}/
 
 ## Description
 

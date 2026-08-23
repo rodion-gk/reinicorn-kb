@@ -1,8 +1,15 @@
+---
+type: idea
+title: 'Reconsider ''harness/'' directory name. ''Harness'' is overloaded: OpenAI''s ''Harness'
+slug: 2026-04-15-reconsider-harness-directory-name-harness-is-overloaded
+lifecycle: done
+status: resolved
+created: 2026-04-15
+author: Michael Biehl
+---
+
 # Reconsider 'harness/' directory name. 'Harness' is overloaded: OpenAI's 'Harness
 
-**Date:** 2026-04-15
-**Author:** Michael Biehl
-**Status:** resolved
 **Resolved:** 2026-04-16
 
 ## Description

@@ -1,8 +1,15 @@
+---
+type: idea
+title: All harness docs must be created via reins CLI templates, never from scratch
+slug: 2026-02-22-all-harness-docs-must-be-created-via-reins-cli-templates
+lifecycle: done
+status: resolved
+created: 2026-02-22
+author: Michael Biehl
+---
+
 # All harness docs must be created via reins CLI templates, never from scratch
 
-**Date:** 2026-02-22
-**Author:** Michael Biehl
-**Status:** resolved
 **Resolved:** 2026-05-05
 
 ## Description

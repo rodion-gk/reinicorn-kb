@@ -1,8 +1,14 @@
-# Pip-free shell bootstrap path for environments without Python tooling (replaced 
+---
+type: idea
+title: Pip-free shell bootstrap path for environments without Python tooling (replaced
+slug: 2026-07-05-pip-free-shell-bootstrap-path-for-environments-without-pytho
+lifecycle: active
+status: new
+created: 2026-07-05
+author: Michael Biehl
+---
 
-**Date:** 2026-07-05
-**Author:** Michael Biehl
-**Status:** new
+# Pip-free shell bootstrap path for environments without Python tooling (replaced 
 
 ## Description
 

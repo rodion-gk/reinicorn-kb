@@ -1,8 +1,14 @@
-# cross-repo doc creation workflows
+---
+type: idea
+title: cross-repo doc creation workflows
+slug: 2026-03-21-cross-repo-doc-creation-workflows
+lifecycle: active
+status: new
+created: 2026-03-21
+author: Michael Biehl
+---
 
-**Date:** 2026-03-21
-**Author:** Michael Biehl
-**Status:** new
+# cross-repo doc creation workflows
 
 ## Description
 

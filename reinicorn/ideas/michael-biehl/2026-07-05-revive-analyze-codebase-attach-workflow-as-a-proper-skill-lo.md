@@ -1,8 +1,14 @@
-# Revive analyze-codebase attach workflow as a proper skill (loose skill file dele
+---
+type: idea
+title: Revive analyze-codebase attach workflow as a proper skill (loose skill file dele
+slug: 2026-07-05-revive-analyze-codebase-attach-workflow-as-a-proper-skill-lo
+lifecycle: active
+status: new
+created: 2026-07-05
+author: Michael Biehl
+---
 
-**Date:** 2026-07-05
-**Author:** Michael Biehl
-**Status:** new
+# Revive analyze-codebase attach workflow as a proper skill (loose skill file dele
 
 ## Description
 

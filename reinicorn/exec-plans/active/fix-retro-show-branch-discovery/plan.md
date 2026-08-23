@@ -1,10 +1,17 @@
-# Execution Plan: fix/retro-show-branch-discovery
+---
+type: plan
+title: 'Execution Plan: fix/retro-show-branch-discovery'
+slug: fix-retro-show-branch-discovery
+lifecycle: done
+status: complete
+created: 2026-07-24
+author: Michael Biehl
+branch: fix/retro-show-branch-discovery
+ticket: N/A
+spec: N/A
+---
 
-**Ticket:** N/A
-**Spec:** N/A
-**Author:** Michael Biehl
-**Created:** 2026-07-24
-**Status:** complete
+# Execution Plan: fix/retro-show-branch-discovery
 
 ## Goal
 Fix the agent-discoverability dead-end from idea 2026-07-03: `rcorn retro show <missing-branch>` (and `plan show`) suggested `rcorn retro create` / `rcorn plan create`, which only operate on the current branch, and offered no way to discover which branches have docs.

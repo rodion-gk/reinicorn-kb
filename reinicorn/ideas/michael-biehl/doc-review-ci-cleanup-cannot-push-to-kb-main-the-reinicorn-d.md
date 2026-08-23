@@ -1,8 +1,14 @@
-# Doc-review CI cleanup cannot push to kb main: the reinicorn-doc-review ruleset r
+---
+type: idea
+title: 'Doc-review CI cleanup cannot push to kb main: the reinicorn-doc-review ruleset r'
+slug: doc-review-ci-cleanup-cannot-push-to-kb-main-the-reinicorn-d
+lifecycle: active
+status: new
+created: 2026-07-21
+author: Michael Biehl
+---
 
-**Date:** 2026-07-21
-**Author:** Michael Biehl
-**Status:** new
+# Doc-review CI cleanup cannot push to kb main: the reinicorn-doc-review ruleset r
 
 ## Description
 

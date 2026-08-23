@@ -1,10 +1,16 @@
-# Agent-native output surface (AXI principles)
+---
+type: spec
+title: Agent-native output surface (AXI principles)
+slug: agent-native-output-surface-axi-principles
+lifecycle: done
+status: implemented
+created: 2026-07-02
+author: Michael Biehl
+origin: ai-assisted
+human_validated: true
+---
 
-**Date:** 2026-07-02
-**Author:** Michael Biehl
-**Status:** implemented
-**Origin:** ai-assisted
-**Human-validated:** true
+# Agent-native output surface (AXI principles)
 
 ## Problem
 

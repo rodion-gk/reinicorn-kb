@@ -1,8 +1,14 @@
-# Adopt PLANS.md-style sections in reins plan template (OpenAI Codex cookbook exec
+---
+type: idea
+title: Adopt PLANS.md-style sections in reins plan template (OpenAI Codex cookbook exec
+slug: 2026-07-04-adopt-plans-md-style-sections-in-reins-plan-template-openai
+lifecycle: active
+status: new
+created: 2026-07-04
+author: Michael Biehl
+---
 
-**Date:** 2026-07-04
-**Author:** Michael Biehl
-**Status:** new
+# Adopt PLANS.md-style sections in reins plan template (OpenAI Codex cookbook exec
 
 ## Description
 

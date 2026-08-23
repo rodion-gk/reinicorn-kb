@@ -1,8 +1,15 @@
+---
+type: idea
+title: retro show <missing-branch> suggests retro create which only works for current b
+slug: 2026-07-03-retro-show-missing-branch-suggests-retro-create-which-only-w
+lifecycle: done
+status: resolved
+created: 2026-07-03
+author: Michael Biehl
+---
+
 # retro show <missing-branch> suggests retro create which only works for current b
 
-**Date:** 2026-07-03
-**Author:** Michael Biehl
-**Status:** resolved
 **Resolved:** 2026-07-24
 
 ## Description

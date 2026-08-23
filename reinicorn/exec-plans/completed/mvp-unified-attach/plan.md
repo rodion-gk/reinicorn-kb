@@ -1,9 +1,16 @@
-# Execution Plan: feature/mvp-unified-attach
+---
+type: plan
+title: 'Execution Plan: feature/mvp-unified-attach'
+slug: mvp-unified-attach
+lifecycle: done
+status: completed
+created: 2026-02-19
+author: mnbiehl
+branch: feature/mvp-unified-attach
+ticket: N/A
+---
 
-**Ticket:** N/A
-**Author:** mnbiehl
-**Created:** 2026-02-19
-**Status:** completed
+# Execution Plan: feature/mvp-unified-attach
 
 ## Goal
 Bring reins to MVP — teammates can pip install, run `reins attach`,

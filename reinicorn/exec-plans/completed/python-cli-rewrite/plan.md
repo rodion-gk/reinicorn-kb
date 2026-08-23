@@ -1,9 +1,16 @@
-# Execution Plan: python-cli-rewrite
+---
+type: plan
+title: 'Execution Plan: python-cli-rewrite'
+slug: python-cli-rewrite
+lifecycle: done
+status: complete
+created: 2026-02-15
+author: agent (Claude Code)
+branch: python-cli-rewrite
+ticket: N/A
+---
 
-**Ticket:** N/A
-**Author:** agent (Claude Code)
-**Created:** 2026-02-15
-**Status:** complete
+# Execution Plan: python-cli-rewrite
 
 ## Goal
 Rewrite the reins CLI from ~2,500 lines of bash to Python. Eliminate the `jq` dependency, gain real testing with pytest, and establish a maintainable codebase that scales to planned features (PR crawl, etc.).
